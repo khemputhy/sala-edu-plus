@@ -1,0 +1,3414 @@
+﻿<!DOCTYPE html>
+<html lang="km" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="សាលា អេឌូផ្លើស Edu Plus Learning Platform - រៀនគណិតវិទ្យាពីថ្នាក់ទី៧ ដល់ ថ្នាក់ទី១២ ដោយឥតគិតថ្លៃ">
+  <meta name="keywords" content="គណិតវិទ្យា, ថ្នាក់ទី៧, ថ្នាក់ទី១២, Cambodia, Math, Free Education">
+  <meta name="author" content="Lay Channhan">
+  <meta property="og:title" content="សាលា អេឌូផ្លើស Edu Plus Learning Platform">
+  <meta property="og:description" content="រៀនគណិតវិទ្យាដោយឥតគិតថ្លៃ">
+  <meta property="og:type" content="website">
+  <title>សាលា អេឌូផ្លើស Edu Plus Learning Platform</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Hanuman:wght@100;300;400;700;900&family=Kantumruy+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --primary: #2563EB;
+      --primary-dark: #1d4ed8;
+      --primary-light: #3b82f6;
+      --secondary: #06B6D4;
+      --accent: #F59E0B;
+      --success: #10B981;
+      --danger: #EF4444;
+      --bg: #F8FAFC;
+      --bg2: #ffffff;
+      --bg3: #f1f5f9;
+      --text: #0f172a;
+      --text2: #475569;
+      --text3: #94a3b8;
+      --border: #e2e8f0;
+      --card-shadow: 0 4px 24px rgba(37,99,235,0.08);
+      --card-shadow-hover: 0 16px 48px rgba(37,99,235,0.18);
+      --nav-bg: rgba(255,255,255,0.95);
+      --glass: rgba(255,255,255,0.7);
+      --radius: 20px;
+      --radius-sm: 12px;
+      --transition: all 0.3s cubic-bezier(.4,0,.2,1);
+    }
+
+    [data-theme="dark"] {
+      --bg: #0F172A;
+      --bg2: #1e293b;
+      --bg3: #0f172a;
+      --text: #f1f5f9;
+      --text2: #94a3b8;
+      --text3: #64748b;
+      --border: #334155;
+      --card-shadow: 0 4px 24px rgba(0,0,0,0.4);
+      --card-shadow-hover: 0 16px 48px rgba(37,99,235,0.25);
+      --nav-bg: rgba(15,23,42,0.96);
+      --glass: rgba(30,41,59,0.8);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Kantumruy Pro', 'Hanuman', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: var(--transition);
+      overflow-x: hidden;
+    }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      background: var(--nav-bg) !important;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+      transition: var(--transition);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(37,99,235,0.06);
+    }
+
+    .navbar-brand {
+      font-family: 'Hanuman', sans-serif;
+      font-weight: 900;
+      font-size: 1.3rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 900;
+      font-size: 1.1rem;
+      margin-right: 8px;
+    }
+
+    .brand-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 10px;
+      border: 2px solid rgba(255,255,255,0.85);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      flex-shrink: 0;
+    }
+
+    .nav-link {
+      color: var(--text) !important;
+      font-weight: 500;
+      font-size: 0.88rem;
+      padding: 6px 12px !important;
+      border-radius: 8px;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--primary) !important;
+      background: rgba(37,99,235,0.08);
+    }
+
+    .btn-donate-nav {
+      background: linear-gradient(135deg, var(--accent), #f97316);
+      color: white !important;
+      border-radius: 20px;
+      padding: 6px 16px !important;
+      font-weight: 600;
+    }
+
+    .btn-donate-nav:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(245,158,11,0.4);
+    }
+
+    .dark-toggle {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: 5px 10px;
+      cursor: pointer;
+      color: var(--text2);
+      transition: var(--transition);
+    }
+
+    .dark-toggle:hover { background: var(--primary); color: white; border-color: var(--primary); }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a6e 40%, #0e4f8f 70%, #06B6D4 100%);
+    }
+
+    .hero-bg-shapes {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .hero-bg-shapes::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(37,99,235,0.3) 0%, transparent 70%);
+      top: -200px; right: -100px;
+      animation: pulse-glow 4s ease-in-out infinite;
+    }
+
+    .hero-bg-shapes::after {
+      content: '';
+      position: absolute;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(6,182,212,0.2) 0%, transparent 70%);
+      bottom: -100px; left: -50px;
+      animation: pulse-glow 4s ease-in-out infinite 2s;
+    }
+
+    /* Floating math symbols */
+    .math-particle {
+      position: absolute;
+      color: rgba(255,255,255,0.08);
+      font-size: 3rem;
+      font-weight: 900;
+      pointer-events: none;
+      animation: float-particle linear infinite;
+    }
+
+    @keyframes float-particle {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.1); opacity: 1; }
+    }
+
+    .hero-content { position: relative; z-index: 2; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.9);
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      margin-bottom: 24px;
+      animation: fadeInDown 0.6s ease both;
+    }
+
+    .hero h1 {
+      font-family: 'Hanuman', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      color: white;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      animation: fadeInUp 0.7s ease both 0.1s;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, #38bdf8, #06B6D4, #F59E0B);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      color: rgba(255,255,255,0.8);
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      line-height: 1.8;
+      margin-bottom: 36px;
+      animation: fadeInUp 0.7s ease both 0.2s;
+    }
+
+    .hero-buttons { animation: fadeInUp 0.7s ease both 0.3s; }
+
+    .btn-hero-primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+      box-shadow: 0 8px 24px rgba(37,99,235,0.4);
+    }
+
+    .btn-hero-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(37,99,235,0.5);
+      color: white;
+    }
+
+    .btn-hero-secondary {
+      background: rgba(255,255,255,0.12);
+      color: white;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-hero-secondary:hover {
+      background: rgba(255,255,255,0.2);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 48px;
+      animation: fadeInUp 0.7s ease both 0.4s;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat-num {
+      font-family: 'Hanuman', sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: white;
+      display: block;
+    }
+
+    .hero-stat-label {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.8rem;
+    }
+
+    .hero-visual {
+      position: relative;
+      animation: fadeInRight 0.8s ease both 0.3s;
+    }
+
+    .hero-math-card {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 24px;
+      padding: 32px;
+      text-align: center;
+      color: white;
+    }
+
+    .math-formula-display {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 900;
+      margin: 16px 0;
+      background: linear-gradient(135deg, #38bdf8, #F59E0B);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .formula-item {
+      background: rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 10px 16px;
+      margin: 8px 0;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.85);
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .formula-item i { color: var(--accent); }
+
+    /* ===== SECTIONS ===== */
+    section { padding: 80px 0; }
+
+    .section-header { text-align: center; margin-bottom: 56px; }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(37,99,235,0.1);
+      color: var(--primary);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      border: 1px solid rgba(37,99,235,0.2);
+    }
+
+    .section-title {
+      font-family: 'Hanuman', sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 900;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      color: var(--text2);
+      font-size: 1rem;
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ===== GRADE CARDS ===== */
+    .grade-card {
+      background: var(--bg2);
+      border-radius: var(--radius);
+      padding: 0;
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--border);
+      transition: var(--transition);
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .grade-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--card-shadow-hover);
+      border-color: var(--primary);
+      color: inherit;
+    }
+
+    .grade-card-header {
+      padding: 28px 24px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .grade-card-header::after {
+      content: '';
+      position: absolute;
+      right: -20px; top: -20px;
+      width: 100px; height: 100px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+    }
+
+    .grade-icon {
+      width: 56px; height: 56px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .grade-name {
+      font-family: 'Hanuman', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: white;
+    }
+
+    .grade-level {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.8rem;
+    }
+
+    .grade-card-body {
+      padding: 20px 24px 24px;
+    }
+
+    .grade-meta {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .grade-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      color: var(--text2);
+    }
+
+    .grade-meta-item i { color: var(--primary); font-size: 0.9rem; }
+
+    .grade-progress {
+      height: 6px;
+      background: var(--bg3);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .grade-progress-bar {
+      height: 100%;
+      border-radius: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      width: 0%;
+      transition: width 1s ease;
+    }
+
+    .btn-explore {
+      width: 100%;
+      padding: 10px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--primary);
+      color: var(--primary);
+      background: transparent;
+      font-weight: 600;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-explore:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Grade colors */
+    .grade-g7 .grade-card-header { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+    .grade-g8 .grade-card-header { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+    .grade-g9 .grade-card-header { background: linear-gradient(135deg, #06b6d4, #0e7490); }
+    .grade-g10 .grade-card-header { background: linear-gradient(135deg, #10b981, #047857); }
+    .grade-g11 .grade-card-header { background: linear-gradient(135deg, #f59e0b, #b45309); }
+    .grade-g12 .grade-card-header { background: linear-gradient(135deg, #ef4444, #b91c1c); }
+
+    /* ===== FEATURES ===== */
+    .features-section { background: var(--bg3); }
+
+    .feature-card {
+      background: var(--bg2);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--border);
+      transition: var(--transition);
+      height: 100%;
+    }
+
+    .feature-card:hover { transform: translateY(-4px); box-shadow: var(--card-shadow-hover); }
+
+    .feature-icon {
+      width: 60px; height: 60px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+    }
+
+    .feature-title {
+      font-family: 'Hanuman', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .feature-desc { color: var(--text2); font-size: 0.88rem; line-height: 1.7; }
+
+    /* ===== LESSON CARDS ===== */
+    .lesson-card {
+      background: var(--bg2);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--card-shadow);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .lesson-card:hover { transform: translateY(-4px); box-shadow: var(--card-shadow-hover); }
+
+    .lesson-thumb {
+      width: 100%;
+      height: 180px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: rgba(255,255,255,0.8);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .lesson-thumb::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .lesson-badge {
+      position: absolute;
+      top: 12px; right: 12px;
+      background: rgba(0,0,0,0.4);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .lesson-body { padding: 20px; }
+
+    .lesson-title {
+      font-family: 'Hanuman', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .lesson-desc { color: var(--text2); font-size: 0.82rem; line-height: 1.6; margin-bottom: 16px; }
+
+    .lesson-meta {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .lesson-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.78rem;
+      color: var(--text3);
+    }
+
+    .lesson-buttons {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .btn-lesson {
+      flex: 1;
+      min-width: 80px;
+      padding: 7px 10px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .btn-lesson-read { background: rgba(37,99,235,0.1); color: var(--primary); }
+    .btn-lesson-read:hover { background: var(--primary); color: white; }
+    .btn-lesson-video { background: rgba(239,68,68,0.1); color: #ef4444; }
+    .btn-lesson-video:hover { background: #ef4444; color: white; }
+    .btn-lesson-pdf { background: rgba(245,158,11,0.1); color: var(--accent); }
+    .btn-lesson-pdf:hover { background: var(--accent); color: white; }
+    .btn-lesson-quiz { background: rgba(16,185,129,0.1); color: var(--success); }
+    .btn-lesson-quiz:hover { background: var(--success); color: white; }
+
+    /* ===== SEARCH ===== */
+    .search-section { background: var(--bg3); padding: 60px 0; }
+
+    .search-box {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 18px 60px 18px 24px;
+      border-radius: 50px;
+      border: 2px solid var(--border);
+      background: var(--bg2);
+      color: var(--text);
+      font-size: 1rem;
+      outline: none;
+      transition: var(--transition);
+      font-family: 'Kantumruy Pro', sans-serif;
+    }
+
+    .search-input:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(37,99,235,0.1); }
+
+    .search-btn {
+      position: absolute;
+      right: 6px; top: 50%;
+      transform: translateY(-50%);
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .search-btn:hover { transform: translateY(-50%) scale(1.05); }
+
+    .search-filters {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .filter-chip {
+      padding: 6px 16px;
+      border-radius: 50px;
+      border: 1.5px solid var(--border);
+      background: var(--bg2);
+      color: var(--text2);
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .filter-chip:hover, .filter-chip.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* ===== QUIZ ===== */
+    .quiz-section { background: var(--bg); }
+
+    .quiz-card {
+      background: var(--bg2);
+      border-radius: var(--radius);
+      padding: 40px;
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--border);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .quiz-progress-bar {
+      height: 8px;
+      background: var(--bg3);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 32px;
+    }
+
+    .quiz-progress-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transition: width 0.5s ease;
+    }
+
+    .quiz-question {
+      font-family: 'Hanuman', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .quiz-option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 20px;
+      border-radius: var(--radius-sm);
+      border: 2px solid var(--border);
+      background: var(--bg);
+      cursor: pointer;
+      transition: var(--transition);
+      margin-bottom: 10px;
+    }
+
+    .quiz-option:hover { border-color: var(--primary); background: rgba(37,99,235,0.05); }
+    .quiz-option.selected { border-color: var(--primary); background: rgba(37,99,235,0.08); }
+    .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.08); }
+    .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.08); }
+
+    .quiz-option-label {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    .quiz-option.selected .quiz-option-label { background: var(--primary); color: white; }
+    .quiz-option.correct .quiz-option-label { background: var(--success); color: white; }
+    .quiz-option.wrong .quiz-option-label { background: var(--danger); color: white; }
+
+    .quiz-option-text { color: var(--text); font-size: 0.92rem; }
+
+    .quiz-result {
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .quiz-score-circle {
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      box-shadow: 0 8px 32px rgba(37,99,235,0.3);
+    }
+
+    .quiz-score-num {
+      font-family: 'Hanuman', sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: white;
+    }
+
+    /* ===== DONATION ===== */
+    .donation-section {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a6e 60%, #0e4f8f 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .donation-section::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 60%);
+    }
+
+    .donation-card {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      padding: 32px;
+      text-align: center;
+      transition: var(--transition);
+      position: relative;
+      z-index: 1;
+    }
+
+    .donation-card:hover {
+      background: rgba(255,255,255,0.12);
+      transform: translateY(-4px);
+    }
+
+    .donation-card h5 {
+      font-family: 'Hanuman', sans-serif;
+      font-weight: 700;
+      color: white;
+      font-size: 1rem;
+      margin: 16px 0 8px;
+    }
+
+    .qr-placeholder {
+      width: 140px; height: 140px;
+      background: white;
+      border-radius: 12px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: #999;
+      border: 3px solid rgba(255,255,255,0.3);
+    }
+
+    .donate-method-icon {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      margin: 0 auto 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: 900;
+    }
+
+    .donation-progress { margin: 0 auto 48px; max-width: 500px; position: relative; z-index: 1; }
+
+    .donation-progress-bar {
+      height: 10px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 5px;
+      overflow: hidden;
+      margin: 12px 0 8px;
+    }
+
+    .donation-progress-fill {
+      height: 100%;
+      border-radius: 5px;
+      background: linear-gradient(90deg, var(--accent), #f97316);
+      width: 65%;
+    }
+
+    .donation-progress-text {
+      display: flex;
+      justify-content: space-between;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.82rem;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact-card {
+      background: var(--bg2);
+      border-radius: var(--radius);
+      padding: 40px;
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--border);
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .owner-avatar {
+      width: 100px; height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: white;
+      margin: 0 auto 20px;
+      border: 4px solid var(--bg3);
+      box-shadow: 0 8px 24px rgba(37,99,235,0.25);
+    }
+
+    .owner-name {
+      font-family: 'Hanuman', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .owner-role {
+      color: var(--text2);
+      font-size: 0.88rem;
+      margin-bottom: 28px;
+    }
+
+    .contact-buttons {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-contact {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-contact:hover { transform: translateY(-2px); opacity: 0.9; }
+
+    .btn-fb { background: #1877f2; color: white; }
+    .btn-tg { background: #0088cc; color: white; }
+    .btn-msg { background: linear-gradient(135deg, #0084ff, #a855f7); color: white; }
+    .btn-yt { background: #ff0000; color: white; }
+    .btn-email { background: #ea4335; color: white; }
+    .btn-phone { background: var(--success); color: white; }
+
+    /* ===== FLOATING BUTTON ===== */
+    .floating-contact {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 999;
+    }
+
+    .floating-btn {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 8px 24px rgba(37,99,235,0.4);
+      transition: var(--transition);
+      animation: float-btn 3s ease-in-out infinite;
+    }
+
+    @keyframes float-btn {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .floating-btn:hover { transform: scale(1.1) !important; animation: none; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0f172a;
+      color: rgba(255,255,255,0.8);
+      padding: 60px 0 30px;
+    }
+
+    .footer-brand {
+      font-family: 'Hanuman', sans-serif;
+      font-weight: 900;
+      font-size: 1.3rem;
+      background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 12px;
+    }
+
+    .footer-desc { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
+
+    .footer-heading {
+      font-family: 'Hanuman', sans-serif;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 16px;
+      font-size: 1rem;
+    }
+
+    .footer-link {
+      display: block;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+      transition: var(--transition);
+    }
+
+    .footer-link:hover { color: var(--secondary); padding-left: 4px; }
+
+    .footer-social {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .social-icon {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .social-icon:hover { background: var(--primary); color: white; transform: translateY(-2px); }
+
+    .footer-divider { border-color: rgba(255,255,255,0.08); margin: 32px 0 20px; }
+
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: gap; gap: 12px; }
+
+    .footer-copyright { font-size: 0.82rem; color: rgba(255,255,255,0.4); }
+
+    /* ===== MODAL ===== */
+    .modal-content {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+    }
+
+    .modal-header { border-bottom: 1px solid var(--border); }
+    .modal-footer { border-top: 1px solid var(--border); }
+    .btn-close { filter: var(--text) == '#f1f5f9' ? invert(1) : none; }
+
+    [data-theme="dark"] .btn-close { filter: invert(1); }
+
+    /* ===== UTILITY ===== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .fade-in { animation: fadeInUp 0.7s ease both; }
+
+    .divider {
+      width: 60px; height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 2px;
+      margin: 12px auto 0;
+    }
+
+    /* ===== SEARCH RESULTS ===== */
+    .search-results {
+      position: absolute;
+      top: 100%; left: 0; right: 0;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      margin-top: 8px;
+      box-shadow: var(--card-shadow-hover);
+      max-height: 300px;
+      overflow-y: auto;
+      z-index: 100;
+      display: none;
+    }
+
+    .search-results.show { display: block; }
+
+    .search-result-item {
+      padding: 12px 20px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .search-result-item:last-child { border-bottom: none; }
+    .search-result-item:hover { background: rgba(37,99,235,0.06); }
+
+    .search-result-icon {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: rgba(37,99,235,0.1);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .search-result-name { font-weight: 600; font-size: 0.88rem; }
+    .search-result-sub { font-size: 0.75rem; color: var(--text3); }
+
+    /* ===== BACK TO TOP ===== */
+    #backToTop {
+      position: fixed;
+      bottom: 96px;
+      right: 30px;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--bg2);
+      border: 1.5px solid var(--border);
+      color: var(--text2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition);
+      z-index: 998;
+      box-shadow: var(--card-shadow);
+    }
+
+    #backToTop.show { opacity: 1; pointer-events: all; }
+    #backToTop:hover { background: var(--primary); color: white; border-color: var(--primary); }
+
+    /* Math Content Modal CSS styling */
+    .math-formula-box {
+      background: var(--bg3);
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: var(--primary);
+      text-align: center;
+      margin: 14px 0;
+      border-left: 5px solid var(--primary);
+      overflow-x: auto;
+    }
+
+    .math-example-box {
+      background: rgba(16, 185, 129, 0.05);
+      border: 1px dashed var(--success);
+      padding: 16px;
+      border-radius: 12px;
+      margin-top: 14px;
+      overflow-x: auto;
+    }
+
+    /* Interactive CSS Number Line */
+    .interactive-number-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg3);
+      padding: 24px 15px;
+      border-radius: 12px;
+      margin: 20px 0;
+      position: relative;
+      overflow-x: auto;
+    }
+    .interactive-number-line::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      top: 50%;
+      height: 4px;
+      background: var(--text);
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+    .number-line-point {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      z-index: 2;
+      position: relative;
+      min-width: 36px;
+    }
+    .number-line-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 2px solid white;
+      transition: var(--transition);
+      margin-bottom: 6px;
+    }
+    .number-line-point:hover .number-line-dot {
+      transform: scale(1.3);
+      background: var(--accent);
+    }
+    .number-line-label {
+      font-weight: bold;
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      section { padding: 56px 0; }
+      .hero { min-height: auto; padding: 80px 0 60px; }
+      .hero-stats { gap: 20px; }
+      .hero-stat-num { font-size: 1.5rem; }
+      .contact-card { padding: 28px 20px; }
+      .quiz-card { padding: 28px 20px; }
+      .donation-card { padding: 24px 16px; }
+      .floating-contact { bottom: 20px; right: 20px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.8rem; }
+      .btn-hero-primary, .btn-hero-secondary { padding: 12px 24px; font-size: 0.9rem; }
+      .lesson-buttons { flex-direction: column; }
+      .btn-lesson { flex: none; }
+    }
+
+    /* ===== NOTIFICATION TOAST ===== */
+    .toast-container { z-index: 9999; }
+    .toast {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="#home">
+      <img src="logo-eduplus.png" alt="សាលា អេឌូផ្លើស Edu Plus Logo" class="brand-logo">
+      សាលា អេឌូផ្លើស Edu Plus
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+      <i class="fas fa-bars" style="color:var(--text)"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navContent">
+      <ul class="navbar-nav mx-auto gap-1">
+        <li class="nav-item"><a class="nav-link active" href="#home">ទំព័រដើម</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#grades" data-bs-toggle="dropdown">ថ្នាក់</a>
+          <ul class="dropdown-menu" style="background:var(--bg2);border:1px solid var(--border);border-radius:12px">
+            <li><a class="dropdown-item" href="#grades" style="color:var(--text);font-size:.88rem" onclick="scrollToGrade(7)">ថ្នាក់ទី៧</a></li>
+            <li><a class="dropdown-item" href="#grades" style="color:var(--text);font-size:.88rem" onclick="scrollToGrade(8)">ថ្នាក់ទី៨</a></li>
+            <li><a class="dropdown-item" href="#grades" style="color:var(--text);font-size:.88rem" onclick="scrollToGrade(9)">ថ្នាក់ទី៩</a></li>
+            <li><a class="dropdown-item" href="#grades" style="color:var(--text);font-size:.88rem" onclick="scrollToGrade(10)">ថ្នាក់ទី១០</a></li>
+
+            <li><hr class="dropdown-divider"></li>
+            <li><span class="dropdown-item-text fw-bold" style="color:var(--text);font-size:.82rem;">ថ្នាក់ទី១១</span></li>
+            <li><a class="dropdown-item ps-4" href="#grades" style="color:var(--text);font-size:.86rem" onclick="scrollToGrade(11)">ថ្នាក់ទី១១ កម្រិតខ្ពស់ ភាគ១</a></li>
+            <li><a class="dropdown-item ps-4" href="#grades" style="color:var(--text);font-size:.86rem" onclick="scrollToGrade(11)">ថ្នាក់ទី១១ កម្រិតខ្ពស់ ភាគ២</a></li>
+            <li><a class="dropdown-item ps-4" href="#grades" style="color:var(--text);font-size:.86rem" onclick="scrollToGrade(11)">ថ្នាក់ទី១១ កម្រិតមូលដ្ឋាន</a></li>
+
+            <li><hr class="dropdown-divider"></li>
+            <li><span class="dropdown-item-text fw-bold" style="color:var(--text);font-size:.82rem;">ថ្នាក់ទី១២</span></li>
+            <li><a class="dropdown-item ps-4" href="#grades" style="color:var(--text);font-size:.86rem" onclick="scrollToGrade(12)">ថ្នាក់ទី១២ កម្រិតខ្ពស់ ភាគ១</a></li>
+            <li><a class="dropdown-item ps-4" href="#grades" style="color:var(--text);font-size:.86rem" onclick="scrollToGrade(12)">ថ្នាក់ទី១២ កម្រិតខ្ពស់ ភាគ២</a></li>
+            <li><a class="dropdown-item ps-4" href="#grades" style="color:var(--text);font-size:.86rem" onclick="scrollToGrade(12)">ថ្នាក់ទី១២ កម្រិតមូលដ្ឋាន</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#features">អំពីយើង</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">ទំនាក់ទំនង</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="openAdminModal()">Admin</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-2">
+        <button class="dark-toggle" id="darkToggle" title="Toggle dark mode">
+          <i class="fas fa-moon" id="darkIcon"></i>
+        </button>
+        <a href="#donate" class="nav-link btn-donate-nav">
+          <i class="fas fa-heart me-1"></i> Donate
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="home">
+  <div class="hero-bg-shapes"></div>
+
+  <!-- Math floating particles -->
+  <div class="math-particle" style="left:5%;animation-duration:12s;animation-delay:0s;font-size:2rem">P</div>
+  <div class="math-particle" style="left:15%;animation-duration:15s;animation-delay:3s">∑</div>
+  <div class="math-particle" style="left:75%;animation-duration:11s;animation-delay:1s;font-size:2.5rem">√</div>
+  <div class="math-particle" style="left:85%;animation-duration:14s;animation-delay:5s">∞</div>
+  <div class="math-particle" style="left:45%;animation-duration:13s;animation-delay:7s;font-size:2rem">∫</div>
+  <div class="math-particle" style="left:60%;animation-duration:16s;animation-delay:2s">α</div>
+  <div class="math-particle" style="left:30%;animation-duration:10s;animation-delay:9s;font-size:1.5rem">θ</div>
+
+  <div class="container">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-6">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i class="fas fa-star" style="color:var(--accent)"></i>
+            <span>ការអប់រំឥតគិតថ្លៃ · Free Education</span>
+          </div>
+          <h1>វេទិកាសិក្សា<br><span>គណិតវិទ្យាអនឡាញ</span></h1>
+          <p>រៀនដោយឥតគិតថ្លៃ ជាមួយមេរៀន វីដេអូ PDF លំហាត់ និង Quiz<br>
+          ពីថ្នាក់ទី៧ ដល់ ថ្នាក់ទី១២ · Grade 7 to Grade 12</p>
+          <div class="hero-buttons d-flex flex-wrap gap-3">
+            <a href="#grades" class="btn-hero-primary">
+              <i class="fas fa-play-circle"></i> ចាប់ផ្តើមរៀន
+            </a>
+            <a href="#donate" class="btn-hero-secondary">
+              <i class="fas fa-heart"></i> គាំទ្រ Donate
+            </a>
+            <a href="#contact" class="btn-hero-secondary">
+              <i class="fas fa-envelope"></i> Contact Us
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <span class="hero-stat-num" id="statStudents">0</span>
+              <span class="hero-stat-label">សិស្ស</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-num" id="statLessons">0</span>
+              <span class="hero-stat-label">មេរៀន</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-num" id="statQuizzes">0</span>
+              <span class="hero-stat-label">Quiz</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-num" id="statGrades">0</span>
+              <span class="hero-stat-label">ថ្នាក់</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 d-none d-lg-block">
+        <div class="hero-visual">
+          <div class="hero-math-card">
+            <div style="color:rgba(255,255,255,0.6);font-size:0.85rem;margin-bottom:8px">📐 មេរៀនគណិតវិទ្យា</div>
+            <div class="math-formula-display">f(x) = ax² + bx + c</div>
+            <div style="color:rgba(255,255,255,0.5);font-size:0.8rem;margin-bottom:16px">Quadratic Function · អនុគមន៍ទ្វេនាម</div>
+            <div class="formula-item"><i class="fas fa-check-circle"></i> ទ្រឹស្ដីបទ Pythagoras</div>
+            <div class="formula-item"><i class="fas fa-check-circle"></i> ប្រព័ន្ធប្រូបាប្លីលីតេ</div>
+            <div class="formula-item"><i class="fas fa-check-circle"></i> Calculus · អាំងតេក្រាល</div>
+            <div class="formula-item"><i class="fas fa-check-circle"></i> Trigonometry · ត្រីកោណមាត្រ</div>
+            <div style="margin-top:20px;display:flex;gap:10px;justify-content:center">
+              <div style="text-align:center;padding:12px 20px;background:rgba(255,255,255,0.1);border-radius:12px">
+                <div style="font-size:1.4rem;font-weight:900;color:white">6</div>
+                <div style="font-size:0.75rem;color:rgba(255,255,255,0.6)">ថ្នាក់</div>
+              </div>
+              <div style="text-align:center;padding:12px 20px;background:rgba(255,255,255,0.1);border-radius:12px">
+                <div style="font-size:1.4rem;font-weight:900;color:#F59E0B">100%</div>
+                <div style="font-size:0.75rem;color:rgba(255,255,255,0.6)">ឥតគិតថ្លៃ</div>
+              </div>
+              <div style="text-align:center;padding:12px 20px;background:rgba(255,255,255,0.1);border-radius:12px">
+                <div style="font-size:1.4rem;font-weight:900;color:#10B981">✓</div>
+                <div style="font-size:0.75rem;color:rgba(255,255,255,0.6)">PDF</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SEARCH ===== -->
+<section class="search-section" id="search">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag"><i class="fas fa-search"></i> ស្វែងរក</span>
+      <h2 class="section-title">ស្វែងរកមេរៀន</h2>
+      <p class="section-subtitle">ស្វែងរកតាមថ្នាក់ មេរៀន ឬពាក្យគន្លឹះ</p>
+    </div>
+    <div class="search-box">
+      <input type="text" class="search-input" id="searchInput" placeholder="ស្វែងរកមេរៀន... ឧ: ពិជគណិត, ធរណីមាត្រ">
+      <button class="search-btn" onclick="doSearch()"><i class="fas fa-search"></i></button>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+    <div class="search-filters mt-3">
+      <button class="filter-chip active" id="btn-filter-all" onclick="filterGrade('all', this)">ទាំងអស់</button>
+      <button class="filter-chip" id="btn-filter-7" onclick="filterGrade('7', this)">ថ្នាក់ទី៧</button>
+      <button class="filter-chip" id="btn-filter-8" onclick="filterGrade('8', this)">ថ្នាក់ទី៨</button>
+      <button class="filter-chip" id="btn-filter-9" onclick="filterGrade('9', this)">ថ្នាក់ទី៩</button>
+      <button class="filter-chip" id="btn-filter-10" onclick="filterGrade('10', this)">ថ្នាក់ទី១០</button>
+      <div class="dropdown">
+        <button class="filter-chip dropdown-toggle" id="btn-filter-11-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          ថ្នាក់ទី១១
+        </button>
+        <ul class="dropdown-menu" style="background:var(--bg2);border:1px solid var(--border);border-radius:12px">
+          <li><a class="dropdown-item" href="#lessons" onclick="filterGrade('11', document.getElementById('btn-filter-11-dropdown'), 'ថ្នាក់ទី១១ កម្រិតខ្ពស់ ភាគ១', 'grade11-adv1')">ថ្នាក់ទី១១ កម្រិតខ្ពស់ ភាគ១</a></li>
+          <li><a class="dropdown-item" href="#lessons" onclick="filterGrade('11', document.getElementById('btn-filter-11-dropdown'), 'ថ្នាក់ទី១១ កម្រិតខ្ពស់ ភាគ២', 'grade11-adv2')">ថ្នាក់ទី១១ កម្រិតខ្ពស់ ភាគ២</a></li>
+          <li><a class="dropdown-item" href="#lessons" onclick="filterGrade('11', document.getElementById('btn-filter-11-dropdown'), 'ថ្នាក់ទី១១ កម្រិតមូលដ្ឋាន', 'grade11-basic')">ថ្នាក់ទី១១ កម្រិតមូលដ្ឋាន</a></li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <button class="filter-chip dropdown-toggle" id="btn-filter-12-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          ថ្នាក់ទី១២
+        </button>
+        <ul class="dropdown-menu" style="background:var(--bg2);border:1px solid var(--border);border-radius:12px">
+          <li><a class="dropdown-item" href="#lessons" onclick="filterGrade('12', document.getElementById('btn-filter-12-dropdown'), 'ថ្នាក់ទី១២ កម្រិតខ្ពស់ ភាគ១', 'grade12-adv1')">ថ្នាក់ទី១២ កម្រិតខ្ពស់ ភាគ១</a></li>
+          <li><a class="dropdown-item" href="#lessons" onclick="filterGrade('12', document.getElementById('btn-filter-12-dropdown'), 'ថ្នាក់ទី១២ កម្រិតខ្ពស់ ភាគ២', 'grade12-adv2')">ថ្នាក់ទី១២ កម្រិតខ្ពស់ ភាគ២</a></li>
+          <li><a class="dropdown-item" href="#lessons" onclick="filterGrade('12', document.getElementById('btn-filter-12-dropdown'), 'ថ្នាក់ទី១២ កម្រិតមូលដ្ឋាន', 'grade12-basic')">ថ្នាក់ទី១២ កម្រិតមូលដ្ឋាន</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GRADES ===== -->
+<section id="grades">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag"><i class="fas fa-graduation-cap"></i> ថ្នាក់</span>
+      <h2 class="section-title">ជ្រើសថ្នាក់របស់អ្នក</h2>
+      <div class="divider"></div>
+      <p class="section-subtitle mt-3">ការអប់រំគណិតវិទ្យាលំដាប់ខ្ពស់ ដោយឥតគិតថ្លៃ</p>
+    </div>
+    <div class="row g-4" id="gradesGrid">
+      <!-- Grade cards rendered by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section class="features-section" id="features">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag"><i class="fas fa-star"></i> លក្ខណៈពិសេស</span>
+      <h2 class="section-title">អ្វីដែលអ្នករៀន?</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(37,99,235,0.1);color:var(--primary)">
+            <i class="fas fa-book-open"></i>
+          </div>
+          <div class="feature-title">មេរៀនគ្រប់ជ្រុងជ្រោយ</div>
+          <div class="feature-desc">មេរៀនគណិតវិទ្យាពេញលេញ ងាយស្រួលយល់ ជាមួយការពន្យល់ច្បាស់លាស់</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(239,68,68,0.1);color:#ef4444">
+            <i class="fas fa-play-circle"></i>
+          </div>
+          <div class="feature-title">វីដេអូមេរៀន</div>
+          <div class="feature-desc">មេរៀនវីដេអូដែលពន្យល់ជាភាសាខ្មែរ ងាយស្រួលតាមដាន</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(245,158,11,0.1);color:var(--accent)">
+            <i class="fas fa-file-pdf"></i>
+          </div>
+          <div class="feature-title">PDF ទាញយក</div>
+          <div class="feature-desc">ឯកសារ PDF ដែលអ្នកអាចទាញយកទៅរៀននៅគ្រប់ពេលវេលា</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(16,185,129,0.1);color:var(--success)">
+            <i class="fas fa-pencil-alt"></i>
+          </div>
+          <div class="feature-title">លំហាត់អនុវត្ត</div>
+          <div class="feature-desc">លំហាត់ជាច្រើនដើម្បីអនុវត្ត និងពង្រឹងជំនាញគណិតវិទ្យា</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(139,92,246,0.1);color:#8b5cf6">
+            <i class="fas fa-brain"></i>
+          </div>
+          <div class="feature-title">Quiz ប្រឡង</div>
+          <div class="feature-desc">ប្រឡង Quiz ដើម្បីពិនិត្យចំណេះដឹង ជាមួយការគណនាពិន្ទុភ្លាមៗ</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(6,182,212,0.1);color:var(--secondary)">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <div class="feature-title">ប្រើបានគ្រប់ Device</div>
+          <div class="feature-desc">Responsive ល្អ ប្រើបាននៅ Phone Tablet Laptop Computer</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LESSONS ===== -->
+<section id="lessons">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag"><i class="fas fa-book"></i> មេរៀន</span>
+      <h2 class="section-title" id="lessonsTitle">មេរៀនទាំងអស់</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="row g-4" id="lessonsGrid">
+      <!-- Lessons rendered by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUIZ ===== -->
+<section class="quiz-section" id="quiz">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag"><i class="fas fa-brain"></i> Quiz</span>
+      <h2 class="section-title" id="quizHeaderTitle">សាកល្បង Quiz</h2>
+      <div class="divider"></div>
+      <p class="section-subtitle mt-3">ពិនិត្យចំណេះដឹងគណិតវិទ្យារបស់អ្នក</p>
+    </div>
+    <div class="quiz-card" id="quizContainer">
+      <!-- Quiz rendered by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ===== DONATION ===== -->
+<section class="donation-section" id="donate">
+  <div class="container" style="position:relative;z-index:1">
+    <div class="section-header">
+      <span class="section-tag" style="background:rgba(245,158,11,0.2);color:var(--accent);border-color:rgba(245,158,11,0.3)">
+        <i class="fas fa-heart"></i> គាំទ្រ
+      </span>
+      <h2 class="section-title" style="color:white">គាំទ្រការអភិវឌ្ឍន៍ Website</h2>
+      <div class="divider"></div>
+      <p style="color:rgba(255,255,255,0.6);margin-top:12px;font-size:0.95rem;max-width:560px;margin-left:auto;margin-right:auto">
+        រាល់ការឧបត្ថម្ភរបស់អ្នកជួយឱ្យ Website នេះបន្តដំណើរការ និងផលិតមេរៀនថ្មីៗ
+      </p>
+    </div>
+
+    <!-- Progress -->
+    <div class="donation-progress">
+      <div style="text-align:center;color:white;font-family:'Hanuman',sans-serif;font-weight:700;font-size:1rem;margin-bottom:8px">
+        គោលដៅប្រចាំខែ: $500
+      </div>
+      <div class="donation-progress-bar">
+        <div class="donation-progress-fill" style="width:65%"></div>
+      </div>
+      <div class="donation-progress-text">
+        <span>$325 ប្រមូលបាន</span>
+        <span>65% · $175 ទៀត</span>
+      </div>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      <div class="col-sm-6 col-md-3">
+        <div class="donation-card">
+          <div class="donate-method-icon" style="background:rgba(37,99,235,0.2);color:#60a5fa">
+            <span style="font-weight:900;font-size:1rem">ABA</span>
+          </div>
+          <div class="qr-placeholder">
+            <div><i class="fas fa-qrcode" style="font-size:3rem;color:#ccc"></i><br>ABA KHQR</div>
+          </div>
+          <h5>ABA KHQR</h5>
+          <p style="color:rgba(255,255,255,0.5);font-size:0.78rem">Scan to donate via ABA Bank</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="donation-card">
+          <div class="donate-method-icon" style="background:rgba(16,185,129,0.2);color:#34d399">
+            <span style="font-weight:900;font-size:0.9rem">ACLEDA</span>
+          </div>
+          <div class="qr-placeholder">
+            <div><i class="fas fa-qrcode" style="font-size:3rem;color:#ccc"></i><br>ACLEDA</div>
+          </div>
+          <h5>ACLEDA KHQR</h5>
+          <p style="color:rgba(255,255,255,0.5);font-size:0.78rem">Scan to donate via ACLEDA</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="donation-card">
+          <div class="donate-method-icon" style="background:rgba(139,92,246,0.2);color:#a78bfa">
+            <i class="fas fa-dove" style="font-size:1.3rem"></i>
+          </div>
+          <div class="qr-placeholder">
+            <div><i class="fas fa-qrcode" style="font-size:3rem;color:#ccc"></i><br>Wing</div>
+          </div>
+          <h5>Wing</h5>
+          <p style="color:rgba(255,255,255,0.5);font-size:0.78rem">Donate via Wing Money</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="donation-card">
+          <div class="donate-method-icon" style="background:rgba(245,158,11,0.2);color:#fbbf24">
+            <i class="fas fa-coins" style="font-size:1.3rem"></i>
+          </div>
+          <div class="qr-placeholder">
+            <div><i class="fas fa-qrcode" style="font-size:3rem;color:#ccc"></i><br>TrueMoney</div>
+          </div>
+          <h5>TrueMoney</h5>
+          <p style="color:rgba(255,255,255,0.5);font-size:0.78rem">Donate via TrueMoney</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag"><i class="fas fa-user"></i> ទំនាក់ទំនង</span>
+      <h2 class="section-title">ទំនាក់ទំនងម្ចាស់ Website</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="contact-card">
+      <div class="owner-avatar">
+        <i class="fas fa-user"></i>
+      </div>
+      <div class="owner-name">Lay Channhan</div>
+      <div class="owner-role">
+        <i class="fas fa-chalkboard-teacher" style="color:var(--primary);margin-right:6px"></i>
+        Mathematics Teacher & Developer
+      </div>
+      <div class="contact-buttons">
+        <a href="#" class="btn-contact btn-fb"><i class="fab fa-facebook-f"></i> Facebook</a>
+        <a href="#" class="btn-contact btn-tg"><i class="fab fa-telegram-plane"></i> Telegram</a>
+        <a href="#" class="btn-contact btn-msg"><i class="fab fa-facebook-messenger"></i> Messenger</a>
+        <a href="#" class="btn-contact btn-yt"><i class="fab fa-youtube"></i> YouTube</a>
+        <a href="mailto:channhan@example.com" class="btn-contact btn-email"><i class="fas fa-envelope"></i> Email</a>
+        <a href="tel:+855" class="btn-contact btn-phone"><i class="fas fa-phone"></i> Phone</a>
+      </div>
+      <div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--border)">
+        <p style="color:var(--text2);font-size:0.85rem;line-height:1.7">
+          <i class="fas fa-info-circle" style="color:var(--primary);margin-right:6px"></i>
+          ប្រសិនបើអ្នកមានសំណួរ ឬចង់ចូលរួមចំណែក សូមទំនាក់ទំនងដោយផ្ទាល់
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="footer-brand">សាលា អេឌូផ្លើស Edu Plus</div>
+        <p class="footer-desc">
+          វេទិកាសិក្សាគណិតវិទ្យាអនឡាញ ឥតគិតថ្លៃ<br>
+          ពីថ្នាក់ទី៧ ដល់ ថ្នាក់ទី១២
+        </p>
+        <div class="footer-social">
+          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-telegram-plane"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="col-sm-4 col-lg-2">
+        <div class="footer-heading">Quick Links</div>
+        <a href="#home" class="footer-link">ទំព័រដើម</a>
+        <a href="#grades" class="footer-link">ថ្នាក់</a>
+        <a href="#lessons" class="footer-link">មេរៀន</a>
+        <a href="#quiz" class="footer-link">Quiz</a>
+        <a href="#donate" class="footer-link">Donate</a>
+      </div>
+      <div class="col-sm-4 col-lg-2">
+        <div class="footer-heading">ថ្នាក់</div>
+        <a href="#" class="footer-link" onclick="scrollToGrade(7)">ថ្នាក់ទី៧</a>
+        <a href="#" class="footer-link" onclick="scrollToGrade(8)">ថ្នាក់ទី៨</a>
+        <a href="#" class="footer-link" onclick="scrollToGrade(9)">ថ្នាក់ទី៩</a>
+        <a href="#" class="footer-link" onclick="scrollToGrade(10)">ថ្នាក់ទី១០</a>
+        <a href="#" class="footer-link" onclick="scrollToGrade(11)">ថ្នាក់ទី១១</a>
+        <a href="#" class="footer-link" onclick="scrollToGrade(12)">ថ្នាក់ទី១២</a>
+      </div>
+      <div class="col-sm-4 col-lg-4">
+        <div class="footer-heading">ទំនាក់ទំនង</div>
+        <div class="footer-link"><i class="fas fa-user me-2" style="color:var(--primary)"></i>Lay Channhan</div>
+        <div class="footer-link"><i class="fab fa-telegram-plane me-2" style="color:#0088cc"></i>Telegram</div>
+        <div class="footer-link"><i class="fab fa-facebook-f me-2" style="color:#1877f2"></i>Facebook</div>
+        <div class="footer-link"><i class="fab fa-youtube me-2" style="color:#ff0000"></i>YouTube Channel</div>
+        <div class="mt-3" style="background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.2);border-radius:12px;padding:12px">
+          <div style="color:var(--accent);font-size:0.82rem;font-weight:600;margin-bottom:4px">
+            <i class="fas fa-heart me-1"></i> គាំទ្រ Website
+          </div>
+          <div style="color:rgba(255,255,255,0.5);font-size:0.78rem">
+            ជួយពង្រីកការអប់រំឥតគិតថ្លៃ
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <div class="footer-copyright">© 2026 សាលា អេឌូផ្លើស Edu Plus Learning Platform · All Rights Reserved</div>
+      <div style="font-size:0.8rem;color:rgba(255,255,255,0.3)">Made with <i class="fas fa-heart" style="color:#ef4444"></i> in Cambodia</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== FLOATING CONTACT ===== -->
+<div class="floating-contact">
+  <button class="floating-btn" data-bs-toggle="modal" data-bs-target="#contactModal" title="ទំនាក់ទំនង">
+    <i class="fas fa-comments"></i>
+  </button>
+</div>
+
+<!-- Back to Top -->
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<!-- ===== LESSON DETAIL MODAL ===== -->
+<div class="modal fade" id="lessonDetailModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header border-0 pb-0">
+        <span class="badge bg-primary text-white p-2" id="lessonModalBadge" style="font-size: 0.8rem;">ថ្នាក់ទី...</span>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body pt-2" id="lessonModalBody" style="max-height: 75vh; overflow-y: auto;">
+        <!-- Content dynamic injection -->
+      </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-secondary px-4 py-2" data-bs-dismiss="modal" style="border-radius: 10px;">បិទវិញ</button>
+        <button type="button" class="btn btn-primary px-4 py-2" style="border-radius: 10px;" onclick="showToast('📥 កំពុងទាញយកឯកសារមេរៀនជា PDF...')">
+          <i class="fas fa-download me-1"></i> ទាញយក PDF
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CONTACT MODAL ===== -->
+<div class="modal fade" id="contactModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0 pb-0">
+        <h5 class="modal-title" style="font-family:'Hanuman',sans-serif;font-weight:700;color:var(--text)">
+          <i class="fas fa-comments me-2" style="color:var(--primary)"></i>ទំនាក់ទំនងរហ័ស
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center py-4">
+        <div class="owner-avatar mx-auto mb-3" style="width:70px;height:70px;font-size:1.8rem">
+          <i class="fas fa-user"></i>
+        </div>
+        <div style="font-family:'Hanuman',sans-serif;font-weight:700;color:var(--text);font-size:1.1rem">Lay Channhan</div>
+        <div style="color:var(--text2);font-size:0.83rem;margin-bottom:20px">Mathematics Teacher & Developer</div>
+        <div class="d-flex justify-content-center gap-2 flex-wrap">
+          <a href="#" class="btn-contact btn-fb"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="btn-contact btn-tg"><i class="fab fa-telegram-plane"></i></a>
+          <a href="#" class="btn-contact btn-msg"><i class="fab fa-facebook-messenger"></i></a>
+          <a href="#" class="btn-contact btn-yt"><i class="fab fa-youtube"></i></a>
+          <a href="mailto:channhan@example.com" class="btn-contact btn-email"><i class="fas fa-envelope"></i></a>
+          <a href="tel:+855" class="btn-contact btn-phone"><i class="fas fa-phone"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ADMIN MODAL ===== -->
+<div class="modal fade" id="adminModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0 pb-0">
+        <h5 class="modal-title" style="font-family:'Hanuman',sans-serif;font-weight:800;color:var(--text)">
+          <i class="fas fa-user-shield me-2" style="color:var(--primary)"></i>Admin Control
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body pt-2">
+        <form id="adminLoginForm" onsubmit="adminLogin(event)">
+          <div class="mb-3">
+            <label class="form-label" style="color:var(--text2)">Admin ID</label>
+            <input id="adminIdInput" class="form-control" type="text" placeholder="បញ្ចូល Admin ID" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" style="color:var(--text2)">Password</label>
+            <input id="adminPassInput" class="form-control" type="password" placeholder="បញ្ចូល Password" required>
+          </div>
+          <button class="btn btn-primary w-100" type="submit">
+            <i class="fas fa-sign-in-alt me-1"></i> ចូលគ្រប់គ្រង
+          </button>
+          <div id="adminLoginMsg" class="text-danger mt-2 small"></div>
+        </form>
+
+        <div id="adminPanel" class="d-none">
+          <div class="alert alert-success mb-3">
+            <strong>បានចូលជោគជ័យ</strong> · អ្នកអាចគ្រប់គ្រងទិន្នន័យមេរៀនបាន
+          </div>
+          <div class="d-grid gap-2">
+            <button class="btn btn-outline-primary" onclick="exportProjectData()">
+              <i class="fas fa-file-export me-1"></i> Export Data JSON
+            </button>
+            <button class="btn btn-outline-secondary" onclick="showProjectStructure()">
+              <i class="fas fa-sitemap me-1"></i> បង្ហាញរចនាសម្ព័ន្ធ Project
+            </button>
+            <button class="btn btn-outline-danger" onclick="adminLogout()">
+              <i class="fas fa-sign-out-alt me-1"></i> ចាកចេញ Admin
+            </button>
+          </div>
+          <pre id="projectStructurePreview" class="mt-3 p-3" style="max-height:200px;overflow:auto;background:var(--bg3);border:1px solid var(--border);border-radius:10px;display:none;"></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TOAST ===== -->
+<div class="toast-container position-fixed bottom-0 start-0 p-3" style="z-index:9999">
+  <div id="mainToast" class="toast align-items-center" role="alert">
+    <div class="d-flex">
+      <div class="toast-body" id="toastMsg">✓ Success</div>
+      <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- MathJax Integration for rendering LaTeX Formulas safely in modals -->
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script>
+// ===== DATA (57 CHAPTERS FOR GRADES 7 - 12) =====
+const GRADES_DATA = [
+  { id: 7, name: 'ថ្នាក់ទី៧', nameEn: 'Grade 7', cls: 'grade-g7', icon: 'fas fa-seedling', lessons: 22, quizzes: 5, progress: 0, topics: ['ចំនួនគត់', 'ប្រភាគ', 'កន្សោមពិជគណិត', 'ធរណីមាត្រ', 'ប្រូបាប', 'ក្រាបផ្លិត'] },
+  { id: 8, name: 'ថ្នាក់ទី៨', nameEn: 'Grade 8', cls: 'grade-g8', icon: 'fas fa-star', lessons: 18, quizzes: 18, progress: 0, topics: ['ចំនួនសនិទាន', 'ស្វ័យគុណ', 'សមាមាត្រនិងភាគរយ', 'ស្ថិតិ', 'ប្រូបាប', 'ធរណីមាត្រ'] },
+  { id: 9, name: 'ថ្នាក់ទី៩', nameEn: 'Grade 9', cls: 'grade-g9', icon: 'fas fa-rocket', lessons: 18, quizzes: 18, progress: 0, topics: ['ចំនួនអសនិទាន', 'សមាមាត្រ', 'ពីជគណិត', 'ស្ថិតិ', 'ប្រូបាប', 'ធរណីមាត្រ'] },
+  { id: 10, name: 'ថ្នាក់ទី១០', nameEn: 'Grade 10', cls: 'grade-g10', icon: 'fas fa-fire', lessons: 9, quizzes: 9, progress: 0, topics: ['ពហុធា', 'កត្តីយកម្ម សមីការ និងវិសមការ', 'សមីការនិងវិសមការ', 'ធរណីមាត្រក្នុងប្លង់', 'ផលធៀបត្រីកោណមាត្រ', 'អនុគមន៍', 'ស្ថិតិ', 'វ៉ិចទ័រក្នុងប្លង់', 'ការបំប្លែង'] },
+  { id: 11, name: 'ថ្នាក់ទី១១', nameEn: 'Grade 11', cls: 'grade-g11', icon: 'fas fa-gem', lessons: 7, quizzes: 7, progress: 0, topics: ['លីមីត', 'ដេរីវេ', 'អិចស្ប៉ូណង់ស្យែល', 'ឡូការីត', 'ចំនួនកុំផ្លិច', 'វ៉ិចទ័រលំហ', 'ប្រូបាប'] },
+  { id: 12, name: 'ថ្នាក់ទី១២', nameEn: 'Grade 12', cls: 'grade-g12', icon: 'fas fa-crown', lessons: 10, quizzes: 10, progress: 0, topics: ['ចំនួនកុំផ្លិច', 'លីមីត', 'ដេរីវេនៃអនុគមន៍', 'សិក្សាអថេរភាពនិងសង់ក្រាប', 'វ៉ិចទ័រក្នុងលំហ', 'អាំងតេក្រាល', 'សមីការឌីផេរ៉ង់ស្យែល', 'ប្រូបាប', 'ស្ថិតិពីរអថេរ', 'កោនិក'] },
+];
+
+const LESSONS_DATA = [
+  // ==================== GRADE 7 (22 Lessons matching image_4eef86.png & MathG7L1 P6to19.pdf) ====================
+  {
+    id: 101, grade: 7, icon: 'ℤ', title: 'មេរៀនទី១៖ ចំនួនគត់', desc: 'សញ្ញាណចំនួនគត់ បន្ទាត់ចំនួន ចំនួនគត់គូ/សេស ប្រមាណវិធីទាំង៤ លំដាប់ប្រមាណវិធី ការបង្កត់ និង ការេ/គូប/ឫស។', duration: '60 នាទី', exercises: 25, color: '#3b82f6',
+    summary: 'មេរៀនទី១ ផ្ដល់សញ្ញាណទូទៅនៃចំនួនគត់ លំដាប់ចំនួន ចំនួនគូ/សេស វិធីគណនាទាំងបួន លក្ខណៈប្រមាណវិធី និងសញ្ញាណការេ/គូប/ឫសការេ/ឫសគូប។',
+    formula: 'a + b = c \\quad | \\quad a = bq + r \\ (r < b) \\quad | \\quad a^2 = a \\times a \\quad | \\quad \\sqrt{a^2} = |a|',
+    example: '15 + 24 = 39 \\quad | \\quad 27 = 4 \\times 6 + 3 \\quad | \\quad 5^2 = 25 \\quad | \\quad \\sqrt{100} = 10'
+  },
+  {
+    id: 102, grade: 7, icon: '÷', title: 'មេរៀនទី២៖ តួចែកនិងពហុគុណ', desc: 'ការស្វែងរកតួចែករួមធំបំផុត (PGCD) និងពហុគុណរួមតូចបំផុត (PPCM) នៃចំនួនគត់។', duration: '45 នាទី', exercises: 12, color: '#3b82f6',
+    summary: 'តួចែករួមធំបំផុត និងពហុគុណរួមតូចបំផុត ត្រូវបានស្វែងរកតាមរយៈការបំបែកចំនួនគត់ជាផលគុណកត្តាបឋម។',
+    formula: '\\text{PGCD}(a, b) \\times \\text{PPCM}(a, b) = a \\times b',
+    example: '\\text{PGCD}(12, 18) = 6 \\quad | \\quad \\text{PPCM}(12, 18) = 36'
+  },
+  {
+    id: 103, grade: 7, icon: '±', title: 'មេរៀនទី៣៖ ចំនួនគត់រ៉ឺឡាទីប', desc: 'ស្គាល់ចំនួនគត់វិជ្ជមាន ចំនួនគត់អវិជ្ជមាន និងប្រមាណវិធីបូកដកគុណចែកលើចំនួនគត់រ៉ឺឡាទីប។', duration: '45 នាទី', exercises: 12, color: '#3b82f6',
+    summary: 'ចំនួនគត់រ៉ឺឡាទីបមានសញ្ញា $+$ (វិជ្ជមាន) ឬ $-$ (អវិជ្ជមាន)។ ពេលគុណសញ្ញាដូចគ្នាបានផលវិជ្ជមាន សញ្ញាខុសគ្នាបានផលអវិជ្ជមាន។',
+    formula: '(-a) \\times (-b) = ab \\quad | \\quad (-a) \\times (+b) = -ab',
+    example: '(-8) + (-5) = -13 \\quad | \\quad (-6) \\times (-4) = +24'
+  },
+  {
+    id: 104, grade: 7, icon: '½', title: 'មេរៀនទី៤៖ ប្រភាគ', desc: 'ស្គាល់ភាគយក ភាគបែង ការសម្រួលប្រភាគ និងប្រមាណវិធីលើប្រភាគ។', duration: '45 នាទី', exercises: 15, color: '#3b82f6',
+    summary: 'ប្រភាគតំណាងឱ្យចំណែកនៃតំលៃសរុប។ ដើម្បីបូក ឬដកប្រភាគដែលមានភាគបែងខុសគ្នា យើងត្រូវតម្រូវភាគបែងរួមជាមុនសិន។',
+    formula: '\\frac{a}{b} \\pm \\frac{c}{d} = \\frac{ad \\pm bc}{bd} \\quad (b, d \\neq 0)',
+    example: '\\frac{2}{3} + \\frac{1}{4} = \\frac{2 \\times 4 + 1 \\times 3}{12} = \\frac{8 + 3}{12} = \\frac{11}{12}'
+  },
+  {
+    id: 105, grade: 7, icon: '0.1', title: 'មេរៀនទី៥៖ ចំនួនទសភាគ', desc: 'របៀបសរសេរចំនួនទសភាគ សញ្ញាក្បៀស ខ្ទង់ដប់ ខ្ទង់រយ និងប្រមាណវិធីនានា។', duration: '40 នាទី', exercises: 10, color: '#3b82f6',
+    summary: 'ចំនួនទសភាគមានពីរផ្នែកគឺ ផ្នែកគត់ និងផ្នែកទសភាគ ដែលខណ្ឌគ្នាដោយសញ្ញាក្បៀស (,)។',
+    formula: 'a.bc = a + \\frac{b}{10} + \\frac{c}{100}',
+    example: '3.45 + 1.2 = 4.65 \\quad | \\quad 2.5 \\times 4 = 10'
+  },
+  {
+    id: 106, grade: 7, icon: '%', title: 'មេរៀនទី៦៖ ភាគរយ', desc: 'ការគណនាភាគរយ (%) ក្នុងជីវភាពរស់នៅ ការបញ្ចុះតម្លៃ ការប្រាក់ និងការធៀបភាគរយ។', duration: '50 នាទី', exercises: 12, color: '#3b82f6',
+    summary: 'ភាគរយគឺជាផលធៀបដែលសរសេរក្រោមទម្រង់ប្រភាគដែលមានភាគបែងស្មើនឹង $100$។',
+    formula: 'P\\% \\text{ នៃ } X = X \\times \\frac{P}{100}',
+    example: '20\\% \\text{ នៃ } 150\\$ = 150 \\times \\frac{20}{100} = 30\\$'
+  },
+  {
+    id: 107, grade: 7, icon: '🗺️', title: 'មេរៀនទី៧៖ មាត្រដ្ឋាន', desc: 'ការគណនាមាត្រដ្ឋានគំនូសប្លង់ ផែនទី និងការបំប្លែងទំហំពិតធៀបនឹងទំហំគំនូរ។', duration: '45 នាទី', exercises: 10, color: '#3b82f6',
+    summary: 'មាត្រដ្ឋានគឺជាផលធៀបរវាងប្រវែងនៅលើគំនូសប្លង់ ឬផែនទី និងប្រវែងពិតជាក់ស្តែងនៅលើដី។',
+    formula: 'E = \\frac{d}{D} \\quad (d: \\text{ប្រវែងលើប្លង់}, \\ D: \\text{ប្រវែងពិត})',
+    example: 'E = \\frac{2\\text{ cm}}{2\\text{ km}} = \\frac{2\\text{ cm}}{200000\\text{ cm}} = \\frac{1}{100000}'
+  },
+  {
+    id: 108, grade: 7, icon: 'x', title: 'មេរៀនទី៨៖ កន្សោមពិជគណិត', desc: 'ការប្រើប្រាស់អក្សរតំណាងឱ្យចំនួនពិត ការសម្រួលកន្សោម និងការគណនាតម្លៃលេខ។', duration: '50 នាទី', exercises: 12, color: '#3b82f6',
+    summary: 'កន្សោមពិជគណិតគឺជាការរួមបញ្ចូលគ្នារវាងលេខ និងអញ្ញាត (អក្សរ) ដោយប្រើប្រាស់ប្រមាណវិធីគណិតវិទ្យា។',
+    formula: 'A(x) = ax^2 + bx + c',
+    example: 'A = 3x - 5 \\text{ បើ } x = 4 \\Rightarrow A = 3(4) - 5 = 12 - 5 = 7'
+  },
+  {
+    id: 109, grade: 7, icon: 'x=a', title: 'មេរៀនទី៩៖ សមីការលីនេអ៊ែរមានមួយអញ្ញាត', desc: 'របៀបដោះស្រាយរកឫសនៃសមីការលីនេអ៊ែរ (ដឺក្រេទី១ មានមួយអញ្ញាត)។', duration: '55 នាទី', exercises: 15, color: '#3b82f6',
+    summary: 'សមីការលីនេអ៊ែរមានមួយអញ្ញាត គឺជាសមីការដែលអាចបំប្លែងមកជាទម្រង់ទូទៅ $ax + b = c$។',
+    formula: 'ax + b = c \\Rightarrow ax = c - b \\Rightarrow x = \\frac{c - b}{a} \\quad (a \\neq 0)',
+    example: '2x + 5 = 15 \\Rightarrow 2x = 10 \\Rightarrow x = 5'
+  },
+  {
+    id: 110, grade: 7, icon: '<', title: 'មេរៀនទី១០៖ វិសមភាព', desc: 'ការប្រៀបធៀបទំហំ ច្បាប់វិសមភាព លក្ខណៈធំជាង និងតូចជាង។', duration: '45 នាទី', exercises: 10, color: '#3b82f6',
+    summary: 'វិសមភាពជាទំនាក់ទំនងមិនស្មើគ្នារវាងកន្សោមពីរ។ បើបូក ឬដកចំនួនដូចគ្នា វិសមភាពមិនផ្លាស់ប្តូរទិសដៅទេ។',
+    formula: 'a < b \\Rightarrow a + c < b + c \\quad | \\quad a < b \\Rightarrow ac < bc \\quad (c > 0)',
+    example: 'x - 3 > 5 \\Rightarrow x > 8 \\quad | \\quad -2x < 6 \\Rightarrow x > -3'
+  },
+  {
+    id: 111, grade: 7, icon: 'a:b', title: 'មេរៀនទី១១៖ ផលធៀបនិងសមាមាត្រ', desc: 'ផលធៀបរវាងពីរទំហំ សមភាពនៃផលធៀបពីរ និងការស្វែងរកតួបាត់ក្នុងសមាមាត្រ។', duration: '45 នាទី', exercises: 12, color: '#3b82f6',
+    summary: 'សមាមាត្រគឺជាសមភាពនៃផលធៀបពីរ។ ផលគុណនៃតួចុងស្មើនឹងផលគុណនៃតួកណ្តាល។',
+    formula: '\\frac{a}{b} = \\frac{c}{d} \\Rightarrow ad = bc \\Rightarrow x = \\frac{bc}{a}',
+    example: '\\frac{x}{8} = \\frac{3}{4} \\Rightarrow 4x = 24 \\Rightarrow x = 6'
+  },
+  {
+    id: 112, grade: 7, icon: '―', title: 'មេរៀនទី១២៖ សញ្ញាណដំបូងនៃរូបធរណីមាត្រ', desc: 'ការសិក្សាអំពីចំណុច បន្ទាត់ អង្កត់ កាំរស្មី និងប្លង់ក្នុងលំហធរណីមាត្រ។', duration: '40 នាទី', exercises: 8, color: '#3b82f6',
+    summary: 'ចំណុចមិនមានវិមាត្រឡើយ។ បន្ទាត់ជាបណ្ដុំចំណុចត្រង់ដែលគ្មានទីបញ្ចប់។ អង្កត់ជាចំណែកបន្ទាត់ដែលកំណត់ដោយពីរចំណុច។',
+    formula: 'AB \\subset (d)',
+    example: '\\text{អង្កត់ } AB \\text{ មានប្រវែងកំណត់មួយច្បាស់លាស់ ឧទាហរណ៍ } AB = 5\\text{ cm}'
+  },
+  {
+    id: 113, grade: 7, icon: '∠', title: 'មេរៀនទី១៣៖ មុំ', desc: 'ប្រភេទមុំ (មុំស្រួច មុំកែង មុំទាល មុំរាប) ផលបូកមុំ និងមុំជាប់បន្ថែម។', duration: '50 នាទី', exercises: 12, color: '#3b82f6',
+    summary: 'មុំកើតឡើងពីកាំរស្មីពីរដែលមានគល់រួមគ្នា។ គេវាស់មុំជាដឺក្រេ ($^\\circ$) ដោយប្រើបន្ទាត់បាញ់មុំ។',
+    formula: '\\widehat{A} + \\widehat{B} = 180^\\circ \\quad (\\text{មុំជាប់បន្ថែម})',
+    example: '\\text{មុំកែងមានរង្វាស់ស្មើនឹង } 90^\\circ \\text{ រីឯមុំរាបមានរង្វាស់ } 180^\\circ'
+  },
+  {
+    id: 114, grade: 7, icon: '∥', title: 'មេរៀនទី១៤៖ បន្ទាត់ស្រប បន្ទាត់កែង', desc: 'លក្ខណៈបន្ទាត់ស្របពីរ បន្ទាត់កែង និងមុំបង្កើតឡើងដោយខ្សែកាត់ទទឹង។', duration: '50 នាទី', exercises: 10, color: '#3b82f6',
+    summary: 'បន្ទាត់ស្របពីរគ្មានចំណុចរួមគ្នាឡើយ។ បន្ទាត់កែងពីរជួបគ្នាបង្កើតបានមុំកែង $90^\\circ$។',
+    formula: '(d_1) \\parallel (d_2) \\quad | \\quad (d_1) \\perp (d_2)',
+    example: '\\text{បើ } d_1 \\parallel d_2 \\text{ នោះមុំឆ្លាស់ក្នុងដែលបង្កើតឡើងដោយខ្សែកាត់គឺស្មើគ្នា}'
+  },
+  {
+    id: 115, grade: 7, icon: '▱', title: 'មេរៀនទី១៥៖ រូបធរណីមាត្រដែលមានវិមាត្រពីរ', desc: 'ការស្គាល់ពហុកោណ ត្រីកោណ ចតុកោណ ប្រឡេឡូក្រាម និងចតុកោណស្មើ។', duration: '45 នាទី', exercises: 10, color: '#3b82f6',
+    summary: 'រូបវិមាត្រពីរ (2D) មានបណ្តោយ និងទទឹង តែគ្មានកម្ពស់ ឬកម្រាស់ឡើយ។',
+    formula: 'N_{\\text{sides}} \\ge 3 \\quad (\\text{លក្ខខណ្ឌពហុកោណ})',
+    example: '\\text{ត្រីកោណមានជ្រុង៣ មុំ៣ និងមានផលបូកមុំក្នុងស្មើនឹង } 180^\\circ'
+  },
+  {
+    id: 116, grade: 7, icon: 'A', title: 'មេរៀនទី១៦៖ បរិមាត្រនិងផ្ទៃក្រឡាពហុកោណ', desc: 'រូបមន្តគណនាបរិមាត្រ និងផ្ទៃក្រឡានៃត្រីកោណ ចតុកោណកែង ចតុកោណព្នាយ និងប្រឡេឡូក្រាម។', duration: '55 នាទី', exercises: 15, color: '#3b82f6',
+    summary: 'បរិមាត្រជាប្រវែងជុំវិញរូប រីឯផ្ទៃក្រឡាគឺជាទំហំផ្ទៃដីខាងក្នុងរបស់រូប។',
+    formula: 'S_{\\text{rect}} = w \\times h \\quad | \\quad S_{\\text{tri}} = \\frac{1}{2} b \\times h',
+    example: '\\text{ត្រីកោណមានបាត } b = 6\\text{ cm} \\text{ និងកម្ពស់ } h = 4\\text{ cm} \\Rightarrow S = \\frac{1}{2} \\times 6 \\times 4 = 12\\text{ cm}^2'
+  },
+  {
+    id: 117, grade: 7, icon: '◯', title: 'មេរៀនទី១៧៖ រង្វង់', desc: 'ស្គាល់កាំ អង្កត់ផ្ចិត បន្ទាត់ប៉ះរង្វង់ បរិមាត្រ និងផ្ទៃក្រឡារង្វង់។', duration: '45 នាទី', exercises: 12, color: '#3b82f6',
+    summary: 'រង្វង់ជាបណ្ដុំចំណុចដែលមានចម្ងាយស្មើ (កាំ) ពីចំណុចនឹងមួយ (ផ្ចិត)។ ថាសរង្វង់ជាផ្ទៃខាងក្នុងរង្វង់។',
+    formula: 'C = 2\\pi r \\quad | \\quad S = \\pi r^2 \\quad (\\pi \\approx 3.14)',
+    example: '\\text{រង្វង់មានកាំ } r = 10\\text{ cm} \\Rightarrow C = 2 \\times 3.14 \\times 10 = 62.8\\text{ cm}'
+  },
+  {
+    id: 118, grade: 7, icon: '🧊', title: 'មេរៀនទី១៨៖ មាឌនិងផ្ទៃក្រឡាខាងនៃសូលីត', desc: 'ការគណនាមាឌ ផ្ទៃក្រឡាខាង និងផ្ទៃក្រឡាសរុបនៃគូប និងប្រឡេពីប៉ែតកែង។', duration: '55 នាទី', exercises: 15, color: '#3b82f6',
+    summary: 'រូបសូលីត (3D) មានបីវិមាត្រគឺ បណ្តោយ ទទឹង និងកម្ពស់។ មាឌវាស់ស្ទង់សមត្ថភាពផ្ទុករបស់វា។',
+    formula: 'V_{\\text{rect}} = a \\times b \\times c \\quad | \\quad V_{\\text{cube}} = a^3',
+    example: '\\text{គូបដែលមានជ្រុង } a = 3\\text{ cm} \\Rightarrow V = 3^3 = 27\\text{ cm}^3'
+  },
+  {
+    id: 119, grade: 7, icon: '↔️', title: 'មេរៀនទី១៩៖ ភាពឆ្លុះ', desc: 'ភាពឆ្លុះធៀបនឹងបន្ទាត់ (អ័ក្សឆ្លុះ) និងភាពឆ្លុះធៀបនឹងចំណុច (ផ្ចិតឆ្លុះ)។', duration: '45 នាទី', exercises: 10, color: '#3b82f6',
+    summary: 'រូបពីរឆ្លុះគ្នាធៀបនឹងបន្ទាត់មួយ កាលណាវាត្រួតស៊ីគ្នាទាំងស្រុងពេលបត់តាមបន្ទាត់នោះ។',
+    formula: 'd(A, (d)) = d(A\', (d))',
+    example: '\\text{រូបភាពនៃចំណុច } A(2, 3) \\text{ ឆ្លុះធៀបនឹងអ័ក្សអរដោនេគឺ } A\'(-2, 3)'
+  },
+  {
+    id: 120, grade: 7, icon: '🎲', title: 'មេរៀនទី២០៖ ប្រូបាប', desc: 'ស្គាល់ព្រឹត្តិការណ៍ចៃដន្យ ករណីអាច ករណីស្រប និងគណនាប្រូបាបងាយៗ។', duration: '50 នាទី', exercises: 12, color: '#3b82f6',
+    summary: 'ប្រូបាបវាស់ស្ទង់ឱកាសកើតឡើងនៃព្រឹត្តិការណ៍មួយ ដែលតម្លៃរបស់វាស្ថិតនៅចន្លោះ $0$ និង $1$។',
+    formula: 'P(A) = \\frac{n(A)}{n(S)} \\quad (\\text{ករណីស្រប} \\div \\text{ករណីអាច})',
+    example: '\\text{បោះគ្រាប់ឡុកឡាក់១ មានករណីអាច } 6 \\text{ ។ ប្រូបាបចេញលេខ } 5 \\text{ គឺ } P = \\frac{1}{6}'
+  },
+  {
+    id: 121, grade: 7, icon: '📊', title: 'មេរៀនទី២១៖ ក្រាបសសរ', desc: 'ការរៀបចំទិន្នន័យ ការគូរក្រាបសសរ និងការបកស្រាយក្រាបសសរភ្លោះ។', duration: '45 នាទី', exercises: 10, color: '#3b82f6',
+    summary: 'ក្រាបសសរប្រើប្រាស់របារចតុកោណកែងដើម្បីប្រៀបធៀបទិន្នន័យតាមប្រភេទផ្សេងៗគ្នា។',
+    formula: 'H \\propto \\text{Frequency} \\quad (\\text{កម្ពស់របារសមាមាត្រនឹងប្រេកង់})',
+    example: '\\text{ក្រាបសសរបង្ហាញពីចំនួនសិស្សក្នុងថ្នាក់នីមួយៗ របារខ្ពស់ជាងគេតំណាងឱ្យថ្នាក់មានសិស្សច្រើនបំផុត}'
+  },
+  {
+    id: 122, grade: 7, icon: '🍕', title: 'មេរៀនទី២២៖ ក្រាបផ្លិត', desc: 'ការគណនាមុំសម្រាប់ចម្រៀកថាសរង្វង់ ការបំប្លែងទិន្នន័យ និងការបកស្រាយក្រាបផ្លិត។', duration: '50 នាទី', exercises: 10, color: '#3b82f6',
+    summary: 'ក្រាបផ្លិតបង្ហាញពីសមាមាត្រផ្នែកនីមួយៗធៀបនឹងសរុប ដោយបំប្លែងទិន្នន័យទៅជាមុំនៃរង្វង់ $360^\\circ$។',
+    formula: '\\theta = \\frac{f}{N} \\times 360^\\circ \\quad | \\quad P\\% = \\frac{f}{N} \\times 100\\%',
+    example: '\\text{បើទិន្នន័យស្មើនឹង } 25\\% \\text{ នៃសរុប នោះមុំចម្រៀកថាសគឺ } \\theta = 0.25 \\times 360^\\circ = 90^\\circ'
+  },
+
+  // ==================== GRADE 8 ====================
+  {
+    id: 201, grade: 8, icon: '1', title: 'មេរៀនទី ១៖ ចំនួនសនិទាន', desc: 'មេរៀនទី ១៖ ចំនួនសនិទាន', duration: '45 នាទី', exercises: 12, color: '#8b5cf6',
+    summary: 'សិក្សាចំនួនសនិទាន និងការប្រើប្រាស់ក្នុងលំហាត់មូលដ្ឋាន។',
+    formula: 'x=\\frac{a}{b},\\ b\\neq0',
+    example: '\\frac{3}{4},\\ -2,\\ 0.5'
+  },
+  {
+    id: 202, grade: 8, icon: '2', title: 'មេរៀនទី ២៖ ស្វ័យគុណ', desc: 'មេរៀនទី ២៖ ស្វ័យគុណ', duration: '45 នាទី', exercises: 12, color: '#8b5cf6',
+    summary: 'សិក្សាស្វ័យគុណ និងការអនុវត្តលើកន្សោមចំនួន។',
+    formula: 'a^n',
+    example: '2^4=16'
+  },
+  {
+    id: 203, grade: 8, icon: '3', title: 'មេរៀនទី ៣៖ ទំហំសមាមាត្រនិងភាគរយ', desc: 'មេរៀនទី ៣៖ ទំហំសមាមាត្រនិងភាគរយ', duration: '45 នាទី', exercises: 12, color: '#8b5cf6',
+    summary: 'សិក្សាសមាមាត្រ និងភាគរយក្នុងបញ្ហាជីវិតពិត។',
+    formula: 'P\\%=\\frac{a}{b}\\times100\\%',
+    example: '25\\%=\\frac{25}{100}'
+  },
+  {
+    id: 204, grade: 8, icon: '4', title: 'មេរៀនទី ៤៖ រង្វាស់រង្វាល់', desc: 'មេរៀនទី ៤៖ រង្វាស់រង្វាល់', duration: '40 នាទី', exercises: 10, color: '#8b5cf6',
+    summary: 'សិក្សារង្វាស់រង្វាល់ និងការគណនាពាក់ព័ន្ធ។',
+    formula: 'C=2\\pi r',
+    example: 'r=7 \\Rightarrow C=14\\pi'
+  },
+  {
+    id: 205, grade: 8, icon: '5', title: 'មេរៀនទី ៥៖ កន្សោមពីជគណិត', desc: 'មេរៀនទី ៥៖ កន្សោមពីជគណិត', duration: '45 នាទី', exercises: 12, color: '#8b5cf6',
+    summary: 'សិក្សាកន្សោមពីជគណិត និងការសម្រួលកន្សោម។',
+    formula: '(a+b)^2=a^2+2ab+b^2',
+    example: '(x+1)^2=x^2+2x+1'
+  },
+  {
+    id: 206, grade: 8, icon: '6', title: 'មេរៀនទី ៦៖ កន្សោមសនិទាន', desc: 'មេរៀនទី ៦៖ កន្សោមសនិទាន', duration: '45 នាទី', exercises: 12, color: '#8b5cf6',
+    summary: 'សិក្សាកន្សោមសនិទាន និងប្រមាណវិធីលើប្រភាគពីជគណិត។',
+    formula: '\\frac{a}{b}\\pm\\frac{c}{d}=\\frac{ad\\pm bc}{bd}',
+    example: '\\frac{x}{2}+\\frac{x}{3}=\\frac{5x}{6}'
+  },
+  {
+    id: 207, grade: 8, icon: '7', title: 'មេរៀនទី ៧៖ សមីការដឺក្រេទី១មានមួយអញ្ញាត', desc: 'មេរៀនទី ៧៖ សមីការដឺក្រេទី១មានមួយអញ្ញាត', duration: '45 នាទី', exercises: 12, color: '#8b5cf6',
+    summary: 'សិក្សាវិធីដោះស្រាយសមីការដឺក្រេទី១មានមួយអញ្ញាត។',
+    formula: 'ax+b=0',
+    example: '2x+4=0 \\Rightarrow x=-2'
+  },
+  {
+    id: 208, grade: 8, icon: '8', title: 'មេរៀនទី ៨៖ វិសមីការដឺក្រេទី១មានមួយអញ្ញាត', desc: 'មេរៀនទី ៨៖ វិសមីការដឺក្រេទី១មានមួយអញ្ញាត', duration: '45 នាទី', exercises: 12, color: '#8b5cf6',
+    summary: 'សិក្សាវិសមីការដឺក្រេទី១មានមួយអញ្ញាត។',
+    formula: 'ax+b>0',
+    example: 'x-3>2 \\Rightarrow x>5'
+  },
+  {
+    id: 209, grade: 8, icon: '9', title: 'មេរៀនទី ៩៖ ប្លង់កូអរដោនេនិងក្រាប', desc: 'មេរៀនទី ៩៖ ប្លង់កូអរដោនេនិងក្រាប', duration: '45 នាទី', exercises: 10, color: '#8b5cf6',
+    summary: 'សិក្សាប្លង់កូអរដោនេ និងការតាងក្រាប។',
+    formula: '(x,y)',
+    example: 'A(2,3)'
+  },
+  {
+    id: 210, grade: 8, icon: '10', title: 'មេរៀនទី ១០៖ ស្ថិតិ', desc: 'មេរៀនទី ១០៖ ស្ថិតិ', duration: '45 នាទី', exercises: 10, color: '#8b5cf6',
+    summary: 'សិក្សាទិន្នន័យ និងរង្វាស់មូលដ្ឋានក្នុងស្ថិតិ។',
+    formula: '\\bar{x}=\\frac{\\sum x}{n}',
+    example: '2,4,6 \\Rightarrow \\bar{x}=4'
+  },
+  {
+    id: 211, grade: 8, icon: '11', title: 'មេរៀនទី ១១៖ ប្រូបាប', desc: 'មេរៀនទី ១១៖ ប្រូបាប', duration: '45 នាទី', exercises: 10, color: '#8b5cf6',
+    summary: 'សិក្សាប្រូបាបមូលដ្ឋាន។',
+    formula: 'P(A)=\\frac{n(A)}{n(\\Omega)}',
+    example: 'កាក់១គ្រាប់៖ P(ក្បាល)=\\frac{1}{2}'
+  },
+  {
+    id: 212, grade: 8, icon: '12', title: 'មេរៀនទី ១២៖ ការប្រៀបធៀបត្រីកោណ', desc: 'មេរៀនទី ១២៖ ការប្រៀបធៀបត្រីកោណ', duration: '45 នាទី', exercises: 10, color: '#8b5cf6',
+    summary: 'សិក្សាលក្ខខណ្ឌប្រៀបធៀបត្រីកោណ។',
+    formula: '\\triangle ABC \\cong \\triangle DEF',
+    example: 'SSS, SAS, ASA'
+  },
+  {
+    id: 213, grade: 8, icon: '13', title: 'មេរៀនទី ១៣៖ ចតុកោណ', desc: 'មេរៀនទី ១៣៖ ចតុកោណ', duration: '45 នាទី', exercises: 10, color: '#8b5cf6',
+    summary: 'សិក្សាប្រភេទចតុកោណ និងលក្ខណៈរបស់វា។',
+    formula: '\\sum \\text{angles}=360^\\circ',
+    example: 'ចតុកោណកែង'
+  },
+  {
+    id: 214, grade: 8, icon: '14', title: 'មេរៀនទី ១៤៖ ផ្ទៃក្រឡាពហុកោណ', desc: 'មេរៀនទី ១៤៖ ផ្ទៃក្រឡាពហុកោណ', duration: '45 នាទី', exercises: 10, color: '#8b5cf6',
+    summary: 'សិក្សារូបមន្តផ្ទៃក្រឡាពហុកោណ។',
+    formula: 'S=\\frac{1}{2}bh',
+    example: 'ត្រីកោណ b=6,h=4 \\Rightarrow S=12'
+  },
+  {
+    id: 215, grade: 8, icon: '15', title: 'មេរៀនទី ១៥៖ រង្វង់', desc: 'មេរៀនទី ១៥៖ រង្វង់', duration: '45 នាទី', exercises: 10, color: '#8b5cf6',
+    summary: 'សិក្សាផ្នែកនានានៃរង្វង់ និងរូបមន្តមូលដ្ឋាន។',
+    formula: 'C=2\\pi r,\\ S=\\pi r^2',
+    example: 'r=3 \\Rightarrow S=9\\pi'
+  },
+  {
+    id: 216, grade: 8, icon: '16', title: 'មេរៀនទី ១៦៖ បន្ទាត់និងអង្កត់ពិសេសជួបគ្នានៅក្នុងត្រីកោណ', desc: 'មេរៀនទី ១៦៖ បន្ទាត់និងអង្កត់ពិសេសជួបគ្នានៅក្នុងត្រីកោណ', duration: '45 នាទី', exercises: 10, color: '#8b5cf6',
+    summary: 'សិក្សាបន្ទាត់និងអង្កត់ពិសេសក្នុងត្រីកោណ។',
+    formula: 'ចំណុចកណ្ដាល, កំពូល, អ័ក្សកែង',
+    example: 'បន្ទាត់មធ្យមជួបគ្នានៅចំណុចទំនាញ'
+  },
+  {
+    id: 217, grade: 8, icon: '17', title: 'មេរៀនទី ១៧៖ រូបធរណីមាត្រដែលមានវិមាត្របី', desc: 'មេរៀនទី ១៧៖ រូបធរណីមាត្រដែលមានវិមាត្របី', duration: '45 នាទី', exercises: 10, color: '#8b5cf6',
+    summary: 'សិក្សារូបធរណីមាត្រវិមាត្របី និងលក្ខណៈមូលដ្ឋាន។',
+    formula: 'V=lwh',
+    example: 'ប្រអប់ 2x3x4 \\Rightarrow V=24'
+  },
+  {
+    id: 218, grade: 8, icon: '18', title: 'មេរៀនទី ១៨៖ មាត្រដ្ឋាន', desc: 'មេរៀនទី ១៨៖ មាត្រដ្ឋាន', duration: '45 នាទី', exercises: 10, color: '#8b5cf6',
+    summary: 'សិក្សាមាត្រដ្ឋានលើផែនទី និងគំនូសប្លង់។',
+    formula: 'Scale=\\frac{d}{D}',
+    example: '1:100000'
+  },
+
+  // ==================== GRADE 9 ====================
+  {
+    id: 301, grade: 9, icon: '1', title: 'មេរៀនទី ១៖ ចំនួនអសនិទាន', desc: 'មេរៀនទី ១៖ ចំនួនអសនិទាន', duration: '45 នាទី', exercises: 12, color: '#06b6d4',
+    summary: 'សិក្សាចំនួនអសនិទាន និងការប្រៀបធៀបជាមួយចំនួនសនិទាន។',
+    formula: 'x\\not=\\frac{a}{b}',
+    example: '\\sqrt{2},\\ \\pi'
+  },
+  {
+    id: 302, grade: 9, icon: '2', title: 'មេរៀនទី ២៖ សមាមាត្រ', desc: 'មេរៀនទី ២៖ សមាមាត្រ', duration: '45 នាទី', exercises: 12, color: '#06b6d4',
+    summary: 'សិក្សាសមាមាត្រ និងការអនុវត្តក្នុងលំហាត់។',
+    formula: '\\frac{a}{b}=\\frac{c}{d}',
+    example: '2:3=4:6'
+  },
+  {
+    id: 303, grade: 9, icon: '3', title: 'មេរៀនទី ៣៖ កន្សោមពីជគណិត', desc: 'មេរៀនទី ៣៖ កន្សោមពីជគណិត', duration: '45 នាទី', exercises: 12, color: '#06b6d4',
+    summary: 'សិក្សាកន្សោមពីជគណិត និងការសម្រួល។',
+    formula: '(a+b)^2',
+    example: '(x+2)^2=x^2+4x+4'
+  },
+  {
+    id: 304, grade: 9, icon: '4', title: 'មេរៀនទី ៤៖ សមីការដឺក្រេទី1មានមួយអញ្ញាត', desc: 'មេរៀនទី ៤៖ សមីការដឺក្រេទី1មានមួយអញ្ញាត', duration: '45 នាទី', exercises: 12, color: '#06b6d4',
+    summary: 'សិក្សាវិធីដោះស្រាយសមីការដឺក្រេទី១មានមួយអញ្ញាត។',
+    formula: 'ax+b=0',
+    example: '3x-6=0 \\Rightarrow x=2'
+  },
+  {
+    id: 305, grade: 9, icon: '5', title: 'មេរៀនទី ៥៖ វិសមីការដឺក្រេទី1មានមួយអញ្ញាត', desc: 'មេរៀនទី ៥៖ វិសមីការដឺក្រេទី1មានមួយអញ្ញាត', duration: '45 នាទី', exercises: 12, color: '#06b6d4',
+    summary: 'សិក្សាវិសមីការដឺក្រេទី១មានមួយអញ្ញាត។',
+    formula: 'ax+b>0',
+    example: 'x+1>3 \\Rightarrow x>2'
+  },
+  {
+    id: 306, grade: 9, icon: '6', title: 'មេរៀនទី ៦៖ បំណែងចែកប្រេកង់', desc: 'មេរៀនទី ៦៖ បំណែងចែកប្រេកង់', duration: '45 នាទី', exercises: 10, color: '#06b6d4',
+    summary: 'សិក្សាតារាងបំណែងចែកប្រេកង់។',
+    formula: 'f_i',
+    example: 'តារាងប្រេកង់'
+  },
+  {
+    id: 307, grade: 9, icon: '7', title: 'មេរៀនទី ៧៖ មធ្យមស្ថិតិ', desc: 'មេរៀនទី ៧៖ មធ្យមស្ថិតិ', duration: '45 នាទី', exercises: 10, color: '#06b6d4',
+    summary: 'សិក្សាមធ្យមស្ថិតិ (mean, median, mode)។',
+    formula: '\\bar{x}=\\frac{\\sum x}{n}',
+    example: '1,2,3 \\Rightarrow \\bar{x}=2'
+  },
+  {
+    id: 308, grade: 9, icon: '8', title: 'មេរៀនទី ៨៖ ប្រូបាប', desc: 'មេរៀនទី ៨៖ ប្រូបាប', duration: '45 នាទី', exercises: 10, color: '#06b6d4',
+    summary: 'សិក្សាប្រូបាបមូលដ្ឋាន។',
+    formula: 'P(A)=\\frac{n(A)}{n(\\Omega)}',
+    example: 'P(ចេញគូ)=\\frac{3}{6}'
+  },
+  {
+    id: 309, grade: 9, icon: '9', title: 'មេរៀនទី ៩៖ ចម្ងាយរវាងពីរចំណុច', desc: 'មេរៀនទី ៩៖ ចម្ងាយរវាងពីរចំណុច', duration: '45 នាទី', exercises: 10, color: '#06b6d4',
+    summary: 'សិក្សារូបមន្តចម្ងាយរវាងពីរចំណុចក្នុងប្លង់។',
+    formula: 'd=\\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}',
+    example: 'A(0,0),B(3,4) \\Rightarrow d=5'
+  },
+  {
+    id: 310, grade: 9, icon: '10', title: 'មេរៀនទី ១០៖ សមីការនៃបន្ទាត់', desc: 'មេរៀនទី ១០៖ សមីការនៃបន្ទាត់', duration: '45 នាទី', exercises: 10, color: '#06b6d4',
+    summary: 'សិក្សាសមីការបន្ទាត់ក្នុងប្លង់កូអរដោនេ។',
+    formula: 'ax+by+c=0',
+    example: 'y=2x+1'
+  },
+  {
+    id: 311, grade: 9, icon: '11', title: 'មេរៀនទី ១១៖ ប្រព័ន្ធសមីការដឺក្រេទី1មានពីរអញ្ញាត', desc: 'មេរៀនទី ១១៖ ប្រព័ន្ធសមីការដឺក្រេទី1មានពីរអញ្ញាត', duration: '45 នាទី', exercises: 12, color: '#06b6d4',
+    summary: 'សិក្សាវិធីដោះស្រាយប្រព័ន្ធសមីការ២អញ្ញាត។',
+    formula: '\\begin{cases}ax+by=c\\\\dx+ey=f\\end{cases}',
+    example: 'x+y=5, x-y=1'
+  },
+  {
+    id: 312, grade: 9, icon: '12', title: 'មេរៀនទី ១២៖ ទ្រឹស្ដីបទពីតាករ', desc: 'មេរៀនទី ១២៖ ទ្រឹស្ដីបទពីតាករ', duration: '45 នាទី', exercises: 10, color: '#06b6d4',
+    summary: 'សិក្សាទ្រឹស្ដីបទពីតាករក្នុងត្រីកោណកែង។',
+    formula: 'c^2=a^2+b^2',
+    example: '3,4,5'
+  },
+  {
+    id: 313, grade: 9, icon: '13', title: 'មេរៀនទី ១៣៖ រង្វង់និងបន្ទាត់', desc: 'មេរៀនទី ១៣៖ រង្វង់និងបន្ទាត់', duration: '45 នាទី', exercises: 10, color: '#06b6d4',
+    summary: 'សិក្សាទំនាក់ទំនងរវាងរង្វង់ និងបន្ទាត់។',
+    formula: 'd(O,\\ell)=r',
+    example: 'បន្ទាត់ប៉ះរង្វង់'
+  },
+  {
+    id: 314, grade: 9, icon: '14', title: 'មេរៀនទី ១៤៖ លក្ខណៈមុំនៃរង្វង់', desc: 'មេរៀនទី ១៤៖ លក្ខណៈមុំនៃរង្វង់', duration: '45 នាទី', exercises: 10, color: '#06b6d4',
+    summary: 'សិក្សាលក្ខណៈមុំក្នុងរង្វង់។',
+    formula: '\\angle inscribed=\\frac{1}{2}\\angle central',
+    example: '80^\\circ \\Rightarrow 40^\\circ'
+  },
+  {
+    id: 315, grade: 9, icon: '15', title: 'មេរៀនទី ១៥៖ ទ្រឹស្ដីបទតាលែស', desc: 'មេរៀនទី ១៥៖ ទ្រឹស្ដីបទតាលែស', duration: '45 នាទី', exercises: 10, color: '#06b6d4',
+    summary: 'សិក្សាទ្រឹស្ដីបទតាលែស និងការអនុវត្ត។',
+    formula: '\\frac{AB}{AC}=\\frac{DE}{DF}',
+    example: 'សមាមាត្រជ្រុងស្រប'
+  },
+  {
+    id: 316, grade: 9, icon: '16', title: 'មេរៀនទី ១៦៖ ត្រីកោណដូចគ្នា', desc: 'មេរៀនទី ១៦៖ ត្រីកោណដូចគ្នា', duration: '45 នាទី', exercises: 10, color: '#06b6d4',
+    summary: 'សិក្សាលក្ខខណ្ឌត្រីកោណដូចគ្នា។',
+    formula: '\\triangle ABC \\sim \\triangle DEF',
+    example: 'AA, SAS, SSS'
+  },
+  {
+    id: 317, grade: 9, icon: '17', title: 'មេរៀនទី ១៧៖ ពហុកោណ', desc: 'មេរៀនទី ១៧៖ ពហុកោណ', duration: '45 នាទី', exercises: 10, color: '#06b6d4',
+    summary: 'សិក្សាពហុកោណ និងលក្ខណៈមូលដ្ឋាន។',
+    formula: '(n-2)\\times180^\\circ',
+    example: 'n=5 \\Rightarrow 540^\\circ'
+  },
+  {
+    id: 318, grade: 9, icon: '18', title: 'មេរៀនទី ១៨៖ សូលីត', desc: 'មេរៀនទី ១៨៖ សូលីត', duration: '45 នាទី', exercises: 10, color: '#06b6d4',
+    summary: 'សិក្សារូបសូលីត និងការគណនាមាឌមូលដ្ឋាន។',
+    formula: 'V=lwh',
+    example: '2x2x3=12'
+  },
+
+  // ==================== GRADE 10 ====================
+  {
+    id: 401, grade: 10, icon: '1', title: 'ជំពូកទី ១ ៖ ពហុធា', desc: 'មេរៀនទី ១៖ ពហុធា · មេរៀនទី ២៖ ប្រមាណវិធីចែកពហុធា', duration: '90 នាទី', exercises: 20, color: '#10b981',
+    summary: 'ជំពូកនេះសិក្សាអំពីនិយមន័យពហុធា និងប្រមាណវិធីសំខាន់ៗលើពហុធា។',
+    formula: 'P(x) = a_nx^n + ... + a_1x + a_0',
+    example: '(2x^2-3x+1) + (x^2+x-4) = 3x^2-2x-3'
+  },
+  {
+    id: 402, grade: 10, icon: '2', title: 'ជំពូកទី ២ ៖ តក្កវិទ្យា សំណុំ និងចំនួន', desc: 'មេរៀនទី ១៖ តក្កវិទ្យា · មេរៀនទី ២៖ សំណុំ · មេរៀនទី ៣៖ ចំនួន', duration: '135 នាទី', exercises: 30, color: '#10b981',
+    summary: 'ជំពូកនេះផ្ដោតលើការបំបែកកន្សោមជាផលគុណ ការដោះស្រាយសមីការ និងវិសមការ។',
+    formula: 'x^2-5x+6=(x-2)(x-3)',
+    example: '2x+5>11 \\Rightarrow x>3'
+  },
+  {
+    id: 403, grade: 10, icon: '3', title: 'ជំពូកទី ៣ ៖ សមីការនិងវិសមីការ', desc: 'មេរៀនទី ១៖ សមីការដឺក្រេទី 2 មានមួយអញ្ញាត · មេរៀនទី ២៖ សមីការអសនិទាននិងសមីការដឺក្រេលំដាប់ខ្ពស់ · មេរៀនទី ៣៖ ប្រព័ន្ធសមីការ · មេរៀនទី ៤៖ វិសមីការនិងប្រព័ន្ធវិសមីការ', duration: '180 នាទី', exercises: 40, color: '#10b981',
+    summary: 'ជំពូកស្នូលសម្រាប់ដោះស្រាយសមីការ និងវិសមការកម្រិតខ្ពស់ជាងមុន។',
+    formula: '\\Delta=b^2-4ac',
+    example: 'x^2-5x+6=0 \\Rightarrow x=2 ឬ x=3'
+  },
+  {
+    id: 404, grade: 10, icon: '4', title: 'ជំពូកទី ៤ ៖ ធរណីមាត្រក្នុងប្លង់', desc: 'មេរៀនទី ១៖ កូអរដោនេនៃចំណុច · មេរៀនទី ២៖ សមីការបន្ទាត់ · មេរៀនទី ៣៖ សមីការរង្វង់ · មេរៀនទី ៤៖ ការដោះស្រាយវិសមីការតាមក្រាប', duration: '180 នាទី', exercises: 36, color: '#10b981',
+    summary: 'សិក្សាធរណីមាត្រវិភាគក្នុងប្លង់តាមកូអរដោនេ និងក្រាប។',
+    formula: '(x-h)^2+(y-k)^2=r^2',
+    example: 'ចម្ងាយ A(x1,y1),B(x2,y2): d=\\sqrt{(x2-x1)^2+(y2-y1)^2}'
+  },
+  {
+    id: 405, grade: 10, icon: '5', title: 'ជំពូកទី ៥ ៖ ផលធៀបត្រីកោណមាត្រ', desc: 'មេរៀនទី ១៖ ផលធៀបត្រីកោណមាត្រ · មេរៀនទី ២៖ ការអនុវត្តផលធៀបត្រីកោណ', duration: '90 នាទី', exercises: 22, color: '#10b981',
+    summary: 'អនុវត្ត sin, cos, tan ក្នុងត្រីកោណកែង និងបញ្ហាជីវិតពិត។',
+    formula: '\\sin^2\\theta+\\cos^2\\theta=1',
+    example: '\\tan\\theta=\\frac{opposite}{adjacent}'
+  },
+  {
+    id: 406, grade: 10, icon: '6', title: 'ជំពូកទី ៦ ៖ អនុគមន៍', desc: 'មេរៀនទី ១៖ អនុគមន៍និងក្រាបអនុគមន៍ · មេរៀនទី ២៖ អនុគមន៍ដឺក្រេទី 2 · មេរៀនទី ៣៖ អនុគមន៍សនិទាននិងអសនិទាន', duration: '135 នាទី', exercises: 30, color: '#10b981',
+    summary: 'សិក្សា domain/range, ក្រាបអនុគមន៍ និងអនុគមន៍ពិសេសក្នុងថ្នាក់ទី១០។',
+    formula: 'y=ax^2+bx+c',
+    example: 'g(x)=\\frac{1}{x-2} \\Rightarrow x\\neq2'
+  },
+  {
+    id: 407, grade: 10, icon: '7', title: 'ជំពូកទី ៧ ៖ ស្ថិតិ', desc: 'មេរៀនទី ១៖ បំណែងចែកប្រេកង់និងការតាងក្រាប · មេរៀនទី ២៖ រង្វាស់ទីតាំង', duration: '90 នាទី', exercises: 20, color: '#10b981',
+    summary: 'គណនា mean, median, mode និងរៀបចំទិន្នន័យស្ថិតិ។',
+    formula: '\\bar{x}=\\frac{\\sum x_i}{n}',
+    example: 'Mode នៃ 2,3,3,4,5 គឺ 3'
+  },
+  {
+    id: 408, grade: 10, icon: '8', title: 'ជំពូកទី ៨ ៖ វ៉ិចទ័រក្នុងប្លង់', desc: 'មេរៀនទី ១៖ វ៉ិចទ័រនិងប្រមាណវិធីលើវ៉ិចទ័រ · មេរៀនទី ២៖ ការអនុវត្តវ៉ិចទ័រ', duration: '90 នាទី', exercises: 20, color: '#10b981',
+    summary: 'សិក្សាវ៉ិចទ័រ ការបូកដក និងការប្រើវ៉ិចទ័រក្នុងប្លង់។',
+    formula: '|\\vec{u}|=\\sqrt{u_x^2+u_y^2}',
+    example: '(2,3)+(-1,4)=(1,7)'
+  },
+  {
+    id: 409, grade: 10, icon: '9', title: 'ជំពូកទី ៩ ៖ ការបំប្លែងរូបក្នុងប្លង់', desc: 'មេរៀនទី ១៖ ការបំប្លែងកិល · មេរៀនទី ២៖ ការបំប្លែងឆ្លុះ · មេរៀនទី ៣៖ ការបំប្លែងវិល · មេរៀនទី ៤៖ ការបំប្លែងចាំង', duration: '180 នាទី', exercises: 36, color: '#10b981',
+    summary: 'សិក្សាបំលែងរូបក្នុងប្លង់៖ កិល ឆ្លុះ វិល និងចាំង។',
+    formula: '(x,y)\\xrightarrow{translation(a,b)}(x+a,y+b)',
+    example: 'Reflection តាមអ័ក្ស x: (x,y)\\to(x,-y)'
+  },
+
+  // ==================== GRADE 11 ====================
+  {
+    id: 501, grade: 11, icon: 'lim', title: 'ជំពូកទី១៖ លីមីត', desc: 'លីមីតនៃអនុគមន៍រាងមិនកំណត់ផ្សេងៗ និងលីមីតត្រីកោណមាត្រ។', duration: '60 នាទី', exercises: 20, color: '#f59e0b',
+    summary: 'ការដោះស្រាយលីមីតដែលមានរាងមិនកំណត់ដូចជា $\\frac{0}{0}, \\frac{\\infty}{\\infty}$ ជាដើម។',
+    formula: '\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1 \\quad | \\quad \\lim_{x \\to 2} \\frac{x^2-4}{x-2} = 4',
+    example: '\\lim_{x \\to 2} \\frac{(x-2)(x+2)}{x-2} = \\lim_{x \\to 2} (x+2) = 4'
+  },
+  {
+    id: 502, grade: 11, icon: 'dy/dx', title: 'ជំពូកទី២៖ ដេរីវេ', desc: 'និយមន័យដេរីវេ រូបមន្តដេរីវេនៃអនុគមន៍គ្រឹះ និងសមីការបន្ទាត់ប៉ះ។', duration: '60 នាទី', exercises: 22, color: '#f59e0b',
+    summary: 'ដេរីវេវាស់ស្ទង់អត្រាបម្រែបម្រួលនៃអនុគមន៍ធៀបនឹងការប្រែប្រួលនៃអថេរ។',
+    formula: '(x^n)\' = n x^{n-1} \\quad | \\quad (uv)\' = u\'v + uv\' \\quad | \\quad (\\frac{u}{v})\' = \\frac{u\'v - uv\'}{v^2}',
+    example: 'ដេរីវេនៃអនុគមន៍ y = x^3 + 2x គឺ y\' = 3x^2 + 2'
+  },
+  {
+    id: 503, grade: 11, icon: 'e^x', title: 'ជំពូកទី៣៖ អនុគមន៍អិចស្ប៉ូណង់ស្យែល', desc: 'លក្ខណៈ លីមីត ដេរីវេ និងការដោះស្រាយសមីការអិចស្ប៉ូណង់ស្យែល។', duration: '55 នាទី', exercises: 18, color: '#f59e0b',
+    summary: 'អនុគមន៍អិចស្ប៉ូណង់ស្យែលគោល e ជាអនុគមន៍កើនជានិច្ច និងមានតម្លៃវិជ្ជមានជានិច្ច។',
+    formula: 'e^a \\cdot e^b = e^{a+b} \\quad | \\quad (e^u)\' = u\' e^u',
+    example: 'ដោះស្រាយ៖ e^{2x-1} = e^3 \\Rightarrow 2x-1=3 \\Rightarrow 2x=4 \\Rightarrow x=2'
+  },
+  {
+    id: 504, grade: 11, icon: 'ln', title: 'ជំពូកទី៤៖ អនុគមន៍ឡូការីត', desc: 'ឡូការីតនេពែ (ln) ឡូការីតទសភាគ និងលក្ខណៈដោះស្រាយសមីការឡូការីត។', duration: '55 នាទី', exercises: 18, color: '#f59e0b',
+    summary: 'ឡូការីតនេពែជាអនុគមន៍ច្រាសនៃអនុគមន៍អិចស្ប៉ូណង់ស្យែលគោល e។',
+    formula: '\\ln(ab) = \\ln(a) + \\ln(b) \\quad | \\quad (\\ln x)\' = \\frac{1}{x} \\quad (x > 0)',
+    example: 'ដោះស្រាយ៖ \\ln(x) + \\ln(x-1) = \\ln(2) \\Rightarrow x(x-1)=2 \\Rightarrow x^2-x-2=0 \\Rightarrow x=2 \\text{ (ព្រោះ x > 1)}'
+  },
+  {
+    id: 505, grade: 11, icon: 'a+bi', title: 'ជំពូកទី៥៖ ចំនួនកុំផ្លិច', desc: 'ស្គាល់ចំនួនកុំផ្លិច ទម្រង់ពិជគណិត ប្រមាណវិធីបូក ដក គុណ ចែក ចំនួនកុំផ្លិច។', duration: '50 នាទី', exercises: 16, color: '#f59e0b',
+    summary: 'ចំនួនកុំផ្លិចតាងដោយ Z = a + bi ដែល i² = -1។ ផ្នែកពិតគឺ a និងផ្នែកនិម្មិតគឺ b។',
+    formula: 'i^2 = -1 \\quad | \\quad |Z| = \\sqrt{a^2 + b^2} \\quad | \\quad \\bar{Z} = a - bi',
+    example: 'គណនាផលគុណ៖ (2 + 3i)(2 - 3i) = 2^2 - (3i)^2 = 4 - (-9) = 13'
+  },
+  {
+    id: 506, grade: 11, icon: 'v⃗', title: 'ជំពូកទី៦៖ វ៉ិចទ័រក្នុងលំហ', desc: 'ប្រព័ន្ធកូអរដោនេក្នុងលំហ (O, i, j, k) វ៉ិចទ័រក្នុងលំហ និងផលគុណស្កាលែ។', duration: '55 នាទី', exercises: 15, color: '#f59e0b',
+    summary: 'ការសិក្សាវ៉ិចទ័រក្នុងលំហបីវិមាត្រមានអ័ក្ស x, y, និង z។',
+    formula: 'd = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}',
+    example: 'គណនាចម្ងាយរវាង A(1, 2, 0) និង B(4, 2, 4)៖ d = \\sqrt{(4-1)^2 + (2-2)^2 + (4-0)^2} = \\sqrt{3^2 + 0 + 4^2} = \\sqrt{25} = 5'
+  },
+  {
+    id: 507, grade: 11, icon: 'C(n,p)', title: 'ជំពូកទី៧៖ ប្រូបាប', desc: 'ការវិភាគបន្សំ ចម្រាស់ ផលបូកប្រូបាប និងប្រូបាបមានលក្ខខណ្ឌ។', duration: '50 នាទី', exercises: 16, color: '#f59e0b',
+    summary: 'ការគណនាបន្សំ (Combinations) ដើម្បីជ្រើសរើសវត្ថុដោយមិនគិតលំដាប់។',
+    formula: 'C(n, p) = \\frac{n!}{p!(n-p)!} \\quad | \\quad P(A|B) = \\frac{P(A \\cap B)}{P(B)}',
+    example: 'គណនាបន្សំ C(5, 2)៖ C(5,2) = \\frac{5!}{2!(5-2)!} = \\frac{120}{2 \\times 6} = 10'
+  },
+
+  // ==================== GRADE 12 ====================
+  {
+    id: 601, grade: 12, icon: 'a+bi', title: 'ជំពូកទី ១ : ចំនួនកុំផ្លិច', desc: 'មេរៀនទី ១ : ចំនួនកុំផ្លិចទម្រង់ពីជគណិត · មេរៀនទី ២ : ចំនួនកុំផ្លិចទម្រង់ត្រីកោណមាត្រ · មេរៀនទី ៣ : ស្វ័យគុណទី n និងឫសទី n នៃចំនួនកុំផ្លិច', duration: '90 នាទី', exercises: 24, color: '#ef4444',
+    summary: 'សិក្សាចំនួនកុំផ្លិចតាមទម្រង់ពិជគណិត និងត្រីកោណមាត្រ ព្រមទាំងការគណនាស្វ័យគុណទី n និងឫសទី n។',
+    formula: 'z = a + bi \\quad | \\quad z = r(\\cos\\theta + i\\sin\\theta)',
+    example: 'ឧទាហរណ៍៖ z = 1 + i មានម៉ូឌុល |z| = \\sqrt{2} និងអាគុយម៉ង់ \\theta = \\frac{\\pi}{4}'
+  },
+  {
+    id: 602, grade: 12, icon: 'lim', title: 'ជំពូកទី ២ : លីមីត', desc: 'មេរៀនទី ១ : លីមីតនៃអនុគមន៍ · មេរៀនទី ២ : ភាពជាប់នៃអនុគមន៍', duration: '70 នាទី', exercises: 20, color: '#ef4444',
+    summary: 'សិក្សាលីមីតនៃអនុគមន៍ និងលក្ខខណ្ឌភាពជាប់ ដើម្បីត្រៀមសម្រាប់ដេរីវេ។',
+    formula: '\\lim_{x \\to a} f(x) = L',
+    example: 'ឧទាហរណ៍៖ \\lim_{x \\to 2} (x+3) = 5'
+  },
+  {
+    id: 603, grade: 12, icon: 'dy/dx', title: 'ជំពូកទី ៣ : ដេរីវេនៃអនុគមន៍', desc: 'មេរៀនទី ១ : ដេរីវេនៃអនុគមន៍ · មេរៀនទី ២ : អនុវត្តន៍នៃដេរីវេ · មេរៀនទី ៣ : អនុវត្តន៍ផ្សេងទៀតនៃដេរីវេ', duration: '95 នាទី', exercises: 26, color: '#ef4444',
+    summary: 'សិក្សានិយមន័យ និងរូបមន្តដេរីវេ រួមទាំងការអនុវត្តដើម្បីវិភាគអនុគមន៍។',
+    formula: 'f\'(x) = \\lim_{h \\to 0} \\frac{f(x+h)-f(x)}{h}',
+    example: 'ឧទាហរណ៍៖ បើ f(x)=x^2 នោះ f\'(x)=2x'
+  },
+  {
+    id: 604, grade: 12, icon: 'f(x)', title: 'ជំពូកទី ៤ : សិក្សាអថេរភាពនិងសង់ក្រាប', desc: 'មេរៀនទី ១ : អនុគមន៍សនិទាន · មេរៀនទី ២ : អនុគមន៍អិចស្ប៉ូណង់ស្យែល · មេរៀនទី ៣ : អនុគមន៍លោការីត', duration: '95 នាទី', exercises: 24, color: '#ef4444',
+    summary: 'វិភាគអថេរភាព និងសង់ក្រាបអនុគមន៍សនិទាន អិចស្ប៉ូណង់ស្យែល និងលោការីត។',
+    formula: 'y = a^x \\quad | \\quad y = \\log_a x',
+    example: 'ឧទាហរណ៍៖ អនុគមន៍ y=2^x ជាអនុគមន៍កើន និង y=\\log_2 x កើនលើដែន x>0'
+  },
+  {
+    id: 605, grade: 12, icon: 'v⃗', title: 'ជំពូកទី ៥ : វ៉ិចទ័រក្នុងលំហ', desc: 'មេរៀនទី ១ : វ៉ិចទ័រក្នុងលំហ · មេរៀនទី ២ : ផលគុណនៃពីរវ៉ិចទ័រក្នុងលំហ · មេរៀនទី ៣ : អនុវត្តន៍នៃផលគុណវ៉ិចទ័រ', duration: '90 នាទី', exercises: 22, color: '#ef4444',
+    summary: 'សិក្សាវ៉ិចទ័រក្នុងលំហ និងការប្រើផលគុណវ៉ិចទ័រ ដើម្បីដោះស្រាយបញ្ហាធរណីមាត្រ។',
+    formula: '\\vec{u} \\cdot \\vec{v} = |\\vec{u}| |\\vec{v}|\\cos\\theta',
+    example: 'ឧទាហរណ៍៖ បើ \\vec{u}=(1,2,3), \\vec{v}=(2,0,1) នោះ \\vec{u}\\cdot\\vec{v}=5'
+  }
+];
+
+const GRADE11_BASIC_LESSONS = [
+  {
+    id: 511, grade: 11, icon: 'uₙ', title: 'ជំពូកទី ១ ៖ ស៊ុីត', desc: 'មេរៀនទី ១៖ ស៊ុីតចំនួនពិត · មេរៀនទី ២៖ ស៊ុីតនព្វន្ត · មេរៀនទី ៣៖ ស៊ុីតធរណីមាត្រ', duration: '95 នាទី', exercises: 20, color: '#f59e0b',
+    summary: 'សិក្សាស៊ុីតចំនួនពិត ស៊ុីតនព្វន្ត និងស៊ុីតធរណីមាត្រ។',
+    formula: 'u_n=u_1+(n-1)r \\quad | \\quad u_n=u_1q^{n-1}',
+    example: 'បើ u_1=2 និង r=3 នោះ u_4=11។'
+  },
+  {
+    id: 512, grade: 11, icon: 'e^x', title: 'ជំពូកទី ២ ៖ អនុគមន៍អ៊ិចស្ប៉ូណង់ស្យែល និងអនុគមន៍លោការីត', desc: 'មេរៀនទី ១៖ អនុគមន៍អ៊ិចស្ប៉ូណង់ស្យែល · មេរៀនទី ២៖ អនុគមន៍លោការីត', duration: '90 នាទី', exercises: 18, color: '#f59e0b',
+    summary: 'សិក្សាអនុគមន៍អ៊ិចស្ប៉ូណង់ស្យែល និងអនុគមន៍លោការីត ព្រមទាំងលក្ខណៈសំខាន់ៗ។',
+    formula: 'a^x>0 \\quad | \\quad \\log(ab)=\\log a+\\log b',
+    example: 'e^{2x}=e^6 \\Rightarrow x=3។'
+  },
+  {
+    id: 513, grade: 11, icon: 'sin', title: 'ជំពូកទី ៣ ៖ អនុគមន៍ត្រីកោណមាត្រ', desc: 'មេរៀនទី ១៖ អនុគមន៍ត្រីកោណមាត្រ · មេរៀនទី ២៖ រូបមន្តត្រីកោណមាត្រ · មេរៀនទី ៣៖ អនុគមន៍ច្រាសនៃអនុគមន៍ត្រីកោណមាត្រ · មេរៀនទី ៤៖ សមីការ និងវិសមីការត្រីកោណមាត្រ', duration: '120 នាទី', exercises: 25, color: '#f59e0b',
+    summary: 'រៀនអនុគមន៍ត្រីកោណមាត្រ រូបមន្តសំខាន់ និងដោះស្រាយសមីការ/វិសមីការត្រីកោណមាត្រ។',
+    formula: '\\sin^2x + \\cos^2x = 1',
+    example: '\\sin x = \\frac{1}{2} \\Rightarrow x = \\frac{\\pi}{6} + 2k\\pi \\text{ ឬ } \\frac{5\\pi}{6}+2k\\pi។'
+  },
+  {
+    id: 514, grade: 11, icon: 'M', title: 'ជំពូកទី ៤ ៖ ម៉ាទ្រីស និងដេទែមីណង់', desc: 'មេរៀនទី ១៖ ម៉ាទ្រីស · មេរៀនទី ២៖ ដេទែមីណង់', duration: '90 នាទី', exercises: 18, color: '#f59e0b',
+    summary: 'សិក្សាប្រមាណវិធីលើម៉ាទ្រីស និងការគណនាដេទែមីណង់។',
+    formula: '\\det\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}=ad-bc',
+    example: '\\det\\begin{pmatrix}2&1\\\\3&4\\end{pmatrix}=8-3=5។'
+  },
+  {
+    id: 515, grade: 11, icon: 'lim', title: 'ជំពូកទី ៥ ៖ លីមីត និងដេរីវេ', desc: 'មេរៀនទី ១៖ លីមីតនៃអនុគមន៍ · មេរៀនទី ២៖ អនុគមន៍ដេរីវេ · មេរៀនទី ៣៖ អថេរភាពនៃអនុគមន៍', duration: '110 នាទី', exercises: 24, color: '#f59e0b',
+    summary: 'សិក្សាលីមីត ដេរីវេ និងការវិភាគអថេរភាពអនុគមន៍តាមតារាងសញ្ញា។',
+    formula: '\\lim_{x\\to0}\\frac{\\sin x}{x}=1 \\quad | \\quad (x^n)\'=nx^{n-1}',
+    example: 'f(x)=x^3-3x \\Rightarrow f\'(x)=3x^2-3។'
+  },
+  {
+    id: 516, grade: 11, icon: 'nPr', title: 'ជំពូកទី ៦ ៖ ចម្លាស់ បន្សំ និងប្រូបាប', desc: 'មេរៀនទី ១៖ ចម្លាស់ · មេរៀនទី ២៖ បន្សំ · មេរៀនទី ៣៖ ប្រូបាប', duration: '95 នាទី', exercises: 20, color: '#f59e0b',
+    summary: 'រៀនចម្លាស់ បន្សំ និងប្រូបាប សម្រាប់ដោះស្រាយលំហាត់រាប់ និងឱកាស។',
+    formula: 'P(n,r)=\\frac{n!}{(n-r)!} \\quad | \\quad C(n,r)=\\frac{n!}{r!(n-r)!}',
+    example: 'P(5,2)=20 និង C(5,2)=10។'
+  },
+  {
+    id: 517, grade: 11, icon: 'x̄', title: 'ជំពូកទី ៧ ៖ ស្ថិតិ', desc: 'មេរៀនទី ១៖ រង្វាស់ទីតាំងនៃទិន្នន័យ · មេរៀនទី ២៖ រង្វាស់នៃគម្លាត', duration: '70 នាទី', exercises: 14, color: '#f59e0b',
+    summary: 'សិក្សារង្វាស់ទីតាំង និងរង្វាស់នៃគម្លាតនៃទិន្នន័យ។',
+    formula: '\\bar{x}=\\frac{\\sum x_i}{n} \\quad | \\quad \\sigma=\\sqrt{\\frac{\\sum (x_i-\\bar{x})^2}{n}}',
+    example: 'ទិន្នន័យ 2,3,5,10 មានមធ្យមភាគ 5។'
+  },
+  {
+    id: 518, grade: 11, icon: '3D', title: 'ជំពូកទី ៨ ៖ ធរណីមាត្រក្នុងលំហ', desc: 'មេរៀនទី ១៖ រូបធាតុមាត្រក្នុងលំហ · មេរៀនទី ២៖ ប្លង់ និងបន្ទាត់ក្នុងលំហ · មេរៀនទី ៣៖ ភាពអរបង្គោលក្នុងលំហ', duration: '95 នាទី', exercises: 18, color: '#f59e0b',
+    summary: 'សិក្សាទំនាក់ទំនងរវាងប្លង់ បន្ទាត់ និងរូបធាតុមាត្រក្នុងលំហ។',
+    formula: 'ax+by+cz+d=0',
+    example: 'ប្លង់មានណរម៉ាល់ n=(1,2,3) និងកាត់តាម A(1,0,0)។'
+  }
+];
+
+const GRADE11_ADV_PART1_LESSONS = [
+  {
+    id: 521, grade: 11, icon: 'uₙ', title: 'ជំពូកទី ១ : ស្វីតនិងអនុមានរួមគណិតវិទ្យ', desc: 'មេរៀនទី ១ : ស្វីតចំនួនពិត · មេរៀនទី ២ : ស្វីតនព្វន្ត · មេរៀនទី ៣ : ស្វីតធរណីមាត្រ · មេរៀនទី ៤ : ផលបូកតួនៃស្វីតផ្សេងៗ · មេរៀនទី ៥ : ទំនាក់ទំនងតួនៃស្វីត · មេរៀនទី ៦ : វិចារអនុមានរួមគណិតវិទ្យ', duration: '130 នាទី', exercises: 28, color: '#f59e0b',
+    summary: 'សិក្សាស្វីត និងអនុមានរួមគណិតវិទ្យា រួមទាំងផលបូក និងទំនាក់ទំនងតួ។',
+    formula: 'u_n=u_1+(n-1)r \\quad | \\quad u_n=u_1q^{n-1}',
+    example: 'បើ u_1=3, r=2 នោះ u_5=11។'
+  },
+  {
+    id: 522, grade: 11, icon: 'e^x', title: 'ជំពូកទី ២ : អនុគមន៍អិចស្ប៉ូណង់ស្យែលនិងអនុគមន៍ឡូការីត', desc: 'មេរៀនទី ១ : អនុគមន៍អិចស្ប៉ូណង់ស្យែល · មេរៀនទី ២ : អនុគមន៍ឡូការីត', duration: '90 នាទី', exercises: 20, color: '#f59e0b',
+    summary: 'សិក្សាអនុគមន៍អិចស្ប៉ូណង់ស្យែល និងឡូការីត ព្រមទាំងលក្ខណៈគន្លឹះ។',
+    formula: 'a^x>0 \\quad | \\quad \\log(ab)=\\log a + \\log b',
+    example: 'e^{x+1}=e^4 \\Rightarrow x=3។'
+  },
+  {
+    id: 523, grade: 11, icon: 'sin', title: 'ជំពូកទី ៣ : អនុគមន៍ត្រីកោណមាត្រ', desc: 'មេរៀនទី ១ : អនុគមន៍ត្រីកោណមាត្រ · មេរៀនទី ២ : រូបមន្តត្រីកោណមាត្រ · មេរៀនទី ៣ : អនុគមន៍ច្រាសនៃអនុគមន៍ត្រីកោណមាត្រ · មេរៀនទី ៤ : សមីការនិងវិសមីការត្រីកោណមាត្រ · មេរៀនទី ៥ : សមីការនិងវិសមីការត្រីកោណមាត្រផ្សេងទៀត', duration: '125 នាទី', exercises: 26, color: '#f59e0b',
+    summary: 'សិក្សាអនុគមន៍ត្រីកោណមាត្រ និងការដោះស្រាយសមីការ/វិសមីការដែលពាក់ព័ន្ធ។',
+    formula: '\\sin^2x+\\cos^2x=1',
+    example: '\\cos x=0 \\Rightarrow x=\\frac{\\pi}{2}+k\\pi។'
+  },
+  {
+    id: 524, grade: 11, icon: 'M', title: 'ជំពូកទី ៤ : ម៉ាទ្រីស ដេទែរមីណង់ និងបំប្លែងលីនេអ៊ែរ', desc: 'មេរៀនទី ១ : ម៉ាទ្រីស · មេរៀនទី ២ : ដេទែរមីណង់ · មេរៀនទី ៣ : ការបំប្លែងលីនេអ៊ែរ', duration: '110 នាទី', exercises: 22, color: '#f59e0b',
+    summary: 'សិក្សាម៉ាទ្រីស ដេទែរមីណង់ និងមូលដ្ឋានការបំប្លែងលីនេអ៊ែរ។',
+    formula: '\\det\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}=ad-bc',
+    example: '\\det\\begin{pmatrix}1&2\\\\3&4\\end{pmatrix}=-2។'
+  }
+];
+
+const GRADE11_ADV_PART2_LESSONS = [
+  {
+    id: 525, grade: 11, icon: 'lim', title: 'ជំពូកទី ៥ : លីមីតនិងដេរីវេ', desc: 'មេរៀនទី ១ : លីមីតនិងដេរីវេ · មេរៀនទី ២ : អនុវត្តន៍នៃដេរីវេ · មេរៀនទី ៣ : អថេរភាពនិងក្រាបនៃអនុគមន៍ · មេរៀនទី ៤ : អនុវត្តន៍ដេរីវេចំពោះសមីការនិងវិសមីការ', duration: '125 នាទី', exercises: 26, color: '#f59e0b',
+    summary: 'សិក្សាលីមីត ដេរីវេ និងការអនុវត្តដេរីវេលើសមីការ វិសមីការ និងក្រាបអនុគមន៍។',
+    formula: '\\lim_{x\\to0}\\frac{\\sin x}{x}=1 \\quad | \\quad (x^n)\'=nx^{n-1}',
+    example: 'f(x)=x^3-3x \\Rightarrow f\'(x)=3x^2-3។'
+  },
+  {
+    id: 526, grade: 11, icon: 'nPr', title: 'ជំពូកទី ៦ : ចំលាស់ បន្សំ និងប្រូបាប', desc: 'មេរៀនទី ១ : ចំលាស់ · មេរៀនទី ២ : បន្សំ · មេរៀនទី ៣ : ប្រូបាប', duration: '95 នាទី', exercises: 20, color: '#f59e0b',
+    summary: 'សិក្សាចំលាស់ បន្សំ និងប្រូបាបសម្រាប់ដោះស្រាយលំហាត់រាប់ និងឱកាស។',
+    formula: 'P(n,r)=\\frac{n!}{(n-r)!} \\quad | \\quad C(n,r)=\\frac{n!}{r!(n-r)!}',
+    example: 'P(5,2)=20 និង C(5,2)=10។'
+  },
+  {
+    id: 527, grade: 11, icon: 'x̄', title: 'ជំពូកទី ៧ : ស្ថិតិ', desc: 'មេរៀនទី ១ : រង្វាស់ទីតាំងនៃទិន្នន័យ · មេរៀនទី ២ : រង្វាស់នៃគម្លាត', duration: '70 នាទី', exercises: 14, color: '#f59e0b',
+    summary: 'សិក្សារង្វាស់ទីតាំង និងរង្វាស់នៃគម្លាតនៃទិន្នន័យស្ថិតិ។',
+    formula: '\\bar{x}=\\frac{\\sum x_i}{n} \\quad | \\quad \\sigma=\\sqrt{\\frac{\\sum (x_i-\\bar{x})^2}{n}}',
+    example: 'ទិន្នន័យ 2,3,5,10 មានមធ្យមភាគ 5។'
+  },
+  {
+    id: 528, grade: 11, icon: '3D', title: 'ជំពូកទី ៨ : ធរណីមាត្រក្នុងលំហ', desc: 'មេរៀនទី ១ : រូបធរណីមាត្រក្នុងលំហ · មេរៀនទី ២ : បន្ទាត់និងប្លង់ស្របក្នុងលំហ · មេរៀនទី ៣ : ភាពអរតូហ្គោណាល់ក្នុងលំហ', duration: '95 នាទី', exercises: 18, color: '#f59e0b',
+    summary: 'សិក្សារូបធរណីមាត្រក្នុងលំហ បន្ទាត់-ប្លង់ស្រប និងភាពអរតូហ្គោណាល់។',
+    formula: 'ax+by+cz+d=0',
+    example: 'ប្លង់មានណរម៉ាល់ n=(1,2,3) និងកាត់តាម A(1,0,0)។'
+  }
+];
+
+const GRADE12_ADV_PART2_LESSONS = [
+  {
+    id: 606, grade: 12, icon: '∫', title: 'ជំពូកទី ៦ : អាំងតេក្រាល', desc: 'មេរៀនទី ១ : ព្រីមីទីវនិងអាំងតេក្រាលមិនកំណត់ · មេរៀនទី ២ : អាំងតេក្រាលកំណត់ · មេរៀនទី ៣ : ផ្ទៃក្រឡានៃផ្នែកប្លង់ · មេរៀនទី ៤ : មាឌសូលីតនិងប្រវែងធ្នូ', duration: '120 នាទី', exercises: 30, color: '#ef4444',
+    summary: 'សិក្សាព្រីមីទីវ អាំងតេក្រាលមិនកំណត់/កំណត់ និងការអនុវត្តលើផ្ទៃក្រឡា មាឌ និងប្រវែងធ្នូ។',
+    formula: '\\int_a^b f(x)dx = F(b)-F(a)',
+    example: '\\int_0^1 2x\\,dx = 1'
+  },
+  {
+    id: 607, grade: 12, icon: 'y\'', title: 'ជំពូកទី ៧ : សមីការឌីផេរ៉ង់ស្យែល', desc: 'មេរៀនទី ១ : សមីការឌីផេរ៉ង់ស្យែលលីនេអ៊ែរលំដាប់ទី ១ · មេរៀនទី ២ : សមីការឌីផេរ៉ង់ស្យែលលីនេអ៊ែរលំដាប់ទី ២', duration: '90 នាទី', exercises: 22, color: '#ef4444',
+    summary: 'សិក្សាវិធីដោះស្រាយសមីការឌីផេរ៉ង់ស្យែលលីនេអ៊ែរលំដាប់ទី១ និងទី២។',
+    formula: 'y\' + p(x)y = q(x)',
+    example: 'y\'=2y \\Rightarrow y=Ce^{2x}'
+  },
+  {
+    id: 608, grade: 12, icon: 'P', title: 'ជំពូកទី ៨ : ប្រូបាប', desc: 'មេរៀនទី ១ : ប្រូបាបមានលក្ខខណ្ឌ · មេរៀនទី ២ : ទ្រឹស្ដីបទបាយ៉េស', duration: '80 នាទី', exercises: 20, color: '#ef4444',
+    summary: 'សិក្សាប្រូបាបមានលក្ខខណ្ឌ និងទ្រឹស្ដីបទបាយ៉េសសម្រាប់បញ្ហាអនុវត្ត។',
+    formula: 'P(A|B)=\\frac{P(A\\cap B)}{P(B)}',
+    example: 'P(A|B)=0.5'
+  },
+  {
+    id: 609, grade: 12, icon: 'x̄ȳ', title: 'ជំពូកទី ៩ : ស្ថិតិពីរអថេរ', desc: 'មេរៀនទី ១ : ស្ថិតិមានពីរអថេរ · មេរៀនទី ២ : សមីការបន្ទាត់តម្រែតម្រង់លីនេអ៊ែរ', duration: '85 នាទី', exercises: 20, color: '#ef4444',
+    summary: 'សិក្សាទំនាក់ទំនងរវាងអថេរពីរ និងសមីការបន្ទាត់តម្រែតម្រង់លីនេអ៊ែរ។',
+    formula: 'y = ax + b',
+    example: 'y = 2x + 1'
+  },
+  {
+    id: 610, grade: 12, icon: '◠', title: 'ជំពូកទី ១០ : កោនិក', desc: 'មេរៀនទី ១ : ប៉ារ៉ាបូល · មេរៀនទី ២ : អេលីប · មេរៀនទី ៣ : អ៊ីពែបូល', duration: '95 នាទី', exercises: 24, color: '#ef4444',
+    summary: 'សិក្សាសមីការនិងលក្ខណៈរបស់ប៉ារ៉ាបូល អេលីប និងអ៊ីពែបូល។',
+    formula: '\\frac{x^2}{a^2}+\\frac{y^2}{b^2}=1',
+    example: 'y^2 = 4ax'
+  }
+];
+
+const GRADE12_BASIC_LESSONS = [
+  {
+    id: 611, grade: 12, icon: 'lim', title: 'ជំពូកទី ១ : លីមីត', desc: 'មេរៀនទី ១ : លីមីតនៃអនុគមន៍ · មេរៀនទី ២ : ភាពជាប់នៃអនុគមន៍', duration: '70 នាទី', exercises: 20, color: '#ef4444',
+    summary: 'សិក្សាលីមីតនៃអនុគមន៍ និងភាពជាប់នៃអនុគមន៍។',
+    formula: '\\lim_{x\\to a} f(x)=L',
+    example: '\\lim_{x\\to2}(x+3)=5'
+  },
+  {
+    id: 612, grade: 12, icon: 'dy/dx', title: 'ជំពូកទី ២ : ដេរីវេនៃអនុគមន៍', desc: 'មេរៀនទី ១ : ដេរីវេនៃអនុគមន៍ · មេរៀនទី ២ : អនុវត្តន៍នៃដេរីវេ · មេរៀនទី ៣ : អនុវត្តន៍ផ្សេងទៀតនៃដេរីវេ', duration: '95 នាទី', exercises: 26, color: '#ef4444',
+    summary: 'សិក្សាដេរីវេនៃអនុគមន៍ និងការអនុវត្តនៅលើបញ្ហាគណិតវិទ្យា។',
+    formula: 'f\'(x)=\\lim_{h\\to0}\\frac{f(x+h)-f(x)}{h}',
+    example: 'f(x)=x^2 \\Rightarrow f\'(x)=2x'
+  },
+  {
+    id: 613, grade: 12, icon: 'f(x)', title: 'ជំពូកទី ៣ : សិក្សាអថេរភាពនិងសង់ក្រាប', desc: 'មេរៀនទី ១ : អនុគមន៍សនិទាន · មេរៀនទី ២ : អនុគមន៍អិចស្ប៉ូណង់ស្យែល · មេរៀនទី ៣ : អនុគមន៍លោការីត', duration: '95 នាទី', exercises: 24, color: '#ef4444',
+    summary: 'សិក្សាអថេរភាព និងសង់ក្រាបអនុគមន៍សនិទាន អិចស្ប៉ូណង់ស្យែល និងលោការីត។',
+    formula: 'y=a^x \\quad | \\quad y=\\log_a x',
+    example: 'y=2^x ជាអនុគមន៍កើនលើ R'
+  },
+  {
+    id: 614, grade: 12, icon: '∫', title: 'ជំពូកទី ៤ : អាំងតេក្រាល', desc: 'មេរៀនទី ១ : ព្រីមីទីវនិងអាំងតេក្រាលមិនកំណត់ · មេរៀនទី ២ : អាំងតេក្រាលកំណត់ · មេរៀនទី ៣ : ផ្ទៃក្រឡានៃផ្នែកប្លង់', duration: '110 នាទី', exercises: 28, color: '#ef4444',
+    summary: 'សិក្សាព្រីមីទីវ អាំងតេក្រាលកំណត់ និងការរកផ្ទៃក្រឡាផ្នែកប្លង់។',
+    formula: '\\int_a^b f(x)dx=F(b)-F(a)',
+    example: '\\int_0^1 x\\,dx=\\frac{1}{2}'
+  },
+  {
+    id: 615, grade: 12, icon: 'P', title: 'ជំពូកទី ៥ : ប្រូបាប', desc: 'មេរៀនទី ១ : ប្រូបាបមានលក្ខខណ្ឌ · មេរៀនទី ២ : ទ្រឹស្ដីបទបាយ៉េស', duration: '80 នាទី', exercises: 20, color: '#ef4444',
+    summary: 'សិក្សាប្រូបាបមានលក្ខខណ្ឌ និងទ្រឹស្ដីបទបាយ៉េស។',
+    formula: 'P(A|B)=\\frac{P(A\\cap B)}{P(B)}',
+    example: 'P(A|B)=0.4'
+  },
+  {
+    id: 616, grade: 12, icon: 'x̄ȳ', title: 'ជំពូកទី ៦ : ស្ថិតិពីរអថេរ', desc: 'មេរៀនទី ១ : ស្ថិតិពីរអថេរ · មេរៀនទី ២ : សមីការបន្ទាត់តម្រែតម្រង់លីនេអ៊ែរ', duration: '85 នាទី', exercises: 20, color: '#ef4444',
+    summary: 'សិក្សាទិន្នន័យពីរអថេរ និងបន្ទាត់តម្រែតម្រង់លីនេអ៊ែរ។',
+    formula: 'y=ax+b',
+    example: 'y=1.5x+2'
+  },
+  {
+    id: 617, grade: 12, icon: '◠', title: 'ជំពូកទី ៧ : កោនិក', desc: 'មេរៀនទី ១ : ប៉ារ៉ាបូល · មេរៀនទី ២ : អេលីប · មេរៀនទី ៣ : អ៊ីពែបូល', duration: '95 នាទី', exercises: 24, color: '#ef4444',
+    summary: 'សិក្សាប៉ារ៉ាបូល អេលីប និងអ៊ីពែបូល។',
+    formula: '\\frac{x^2}{a^2}+\\frac{y^2}{b^2}=1',
+    example: 'y^2=4ax'
+  }
+];
+
+const ALL_LESSONS_DATA = [...LESSONS_DATA, ...GRADE11_BASIC_LESSONS, ...GRADE11_ADV_PART1_LESSONS, ...GRADE11_ADV_PART2_LESSONS, ...GRADE12_ADV_PART2_LESSONS, ...GRADE12_BASIC_LESSONS];
+
+// Special dynamic quizzes for individual chapters
+const CHAPTER_QUIZZES = {
+  101: [
+    { q: 'តើលេខទាំងដប់ក្នុងប្រព័ន្ធរបាប់ហ៊ុនឌូអារ៉ាប់មានអ្វីខ្លះ?', opts: ['1, 2, 3, 4, 5, 6, 7, 8, 9, 10', '0, 1, 2, 3, 4, 5, 6, 7, 8, 9', '0, 2, 4, 6, 8, 10, 12, 14, 16, 18', '1, 3, 5, 7, 9, 11, 13, 15, 17, 19'], ans: 1 },
+    { q: 'តើចំនួនគត់ធម្មជាតិជាសំណុំចំនួនបែបណា?', opts: ['សំណុំរួមបញ្ចូលលេខ 0', 'សំណុំមិនរួមបញ្ចូលលេខ 0 គឺ 1, 2, 3, 4, ...', 'សំណុំចំនួនគត់អវិជ្ជមាន', 'សំណុំចំនួនទសភាគ'], ans: 1 },
+    { q: 'នៅលើបន្ទាត់ចំនួន ចំនួនដែលឋិតនៅខាងស្ដាំ ធៀបនឹងចំនួននៅខាងឆ្វេងគឺ៖', opts: ['តូចជាងជានិច្ច', 'ស្មើគ្នាជានិច្ច', 'ធំជាងជានិច្ច', 'គ្មានទំនាក់ទំនងគ្នាទេ'], ans: 2 },
+    { q: 'ចូរកំណត់ផ្នែកនៃបន្ទាត់ចំនួនដែលមានចំណុចតាងចំនួនគត់ "ធំជាង 4 និងតូចជាង 11":', opts: ['5, 6, 7, 8, 9, 10', '4, 5, 6, 7, 8, 9, 10, 11', '5, 6, 7, 8, 9', '6, 7, 8, 9, 10'], ans: 0 },
+    { q: 'តើចំនួនណាខ្លះជាចំនួនគត់គូនៅចន្លោះ 20 និង 43?', opts: ['21, 23, 25, ..., 41', '20, 22, 24, ..., 42', '22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42', '22, 24, 26, 28, 30, 32, 34, 36, 38, 40'], ans: 2 },
+    { q: 'បើប្រមាណវិធីចែកមានទម្រង់ a = bq + r នោះ r តំណាងឱ្យអ្វី ហើយវាមានលក្ខខណ្ឌអ្វីធៀបនឹង b?', opts: ['តួចែក, r > b', 'ផលចែក, r = b', 'សំណល់, r < b', 'តំណាងចែក, r <= b'], ans: 2 },
+    { q: 'គណនាកន្សោមលំដាប់ប្រមាណវិធី៖ 19 - 3 + 7 = ?', opts: ['9', '23', '29', '15'], ans: 1 },
+    { q: 'គណនាតម្លៃ៖ 52 - 4 x 12 + 18 ÷ 6 x 3 = ?', opts: ['13', '144', '9', '25'], ans: 0 },
+    { q: 'ចូរបង្កត់ចំនួន 15824 យកត្រឹមខ្ទង់រយ៖', opts: ['15800', '15900', '16000', '15000'], ans: 0 },
+    { q: 'គណនាតម្លៃនៃឫសគណិតវិទ្យា៖ \\(\\sqrt{4900} + \\sqrt{1600}\\) = ?', opts: ['110', '90', '70', '130'], ans: 0 }
+  ]
+};
+
+const DEFAULT_QUIZ = [
+  { q: 'ប្រសិនបើ x² + 5x + 6 = 0 អ្វីជាចម្លើយ?', opts: ['x = -2, -3', 'x = 2, 3', 'x = -2, 3', 'x = 2, -3'], ans: 0 },
+  { q: 'sin(30°) = ?', opts: ['0.5', '0.866', '1', '0'], ans: 0 },
+  { q: 'ផ្ទៃក្រឡានៃរង្វង់ radius = 5 = ?', opts: ['25π', '10π', '5π', '50π'], ans: 0 },
+  { q: 'f(x) = 2x + 3, f(4) = ?', opts: ['11', '10', '9', '12'], ans: 0 },
+  { q: 'ប្រូបាប p(A) = 0.3, p(B) = 0.4, p(A∪B) = ?', opts: ['0.58', '0.7', '0.12', '0.5'], ans: 0 },
+];
+
+let activeQuizData = [...DEFAULT_QUIZ];
+let quizState = { current: 0, score: 0, answered: [], phase: 'play' };
+
+// ===== ADMIN AUTH =====
+const ADMIN_AUTH_KEY = 'eduplus-admin-auth';
+const ADMIN_CREDENTIALS = {
+  id: 'eduplus_admin',
+  password: 'Eduplus@2026'
+};
+
+// ===== DARK MODE =====
+const savedTheme = localStorage.getItem('hn-theme') || 'light';
+document.documentElement.setAttribute('data-theme', savedTheme);
+updateDarkIcon(savedTheme);
+
+function updateDarkIcon(theme) {
+  const icon = document.getElementById('darkIcon');
+  if (icon) icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+}
+
+document.getElementById('darkToggle').addEventListener('click', () => {
+  const current = document.documentElement.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('hn-theme', next);
+  updateDarkIcon(next);
+});
+
+// ===== RENDER GRADES =====
+function renderGrades() {
+  const grid = document.getElementById('gradesGrid');
+  grid.innerHTML = GRADES_DATA.map(g => `
+    <div class="col-sm-6 col-lg-4">
+      <div class="grade-card ${g.cls}" onclick="showGrade(${g.id})">
+        <div class="grade-card-header">
+          <div class="grade-icon"><i class="${g.icon}"></i></div>
+          <div class="grade-name">${g.name}</div>
+          <div class="grade-level">${g.nameEn} · ${g.topics.slice(0,3).join(' · ')}...</div>
+        </div>
+        <div class="grade-card-body">
+          <div class="grade-meta">
+            <div class="grade-meta-item"><i class="fas fa-book"></i> ${g.lessons} មេរៀន</div>
+            <div class="grade-meta-item"><i class="fas fa-brain"></i> ${g.quizzes} Quiz</div>
+          </div>
+          <div class="grade-progress">
+            <div class="grade-progress-bar" data-w="${Math.floor(Math.random()*80)+10}"></div>
+          </div>
+          <button class="btn-explore"><i class="fas fa-arrow-right"></i> រៀនថ្នាក់នេះ</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  // Animate progress bars on scroll
+  setTimeout(() => {
+    document.querySelectorAll('.grade-progress-bar').forEach(bar => {
+      bar.style.width = bar.dataset.w + '%';
+    });
+  }, 300);
+}
+
+// ===== RENDER LESSONS =====
+function renderLessons(filter = 'all', customLabel = '', profile = '') {
+  const grid = document.getElementById('lessonsGrid');
+  let lessons = filter === 'all' ? LESSONS_DATA : LESSONS_DATA.filter(l => l.grade == filter);
+  if (profile === 'grade11-basic') {
+    lessons = GRADE11_BASIC_LESSONS;
+  } else if (profile === 'grade11-adv1') {
+    lessons = GRADE11_ADV_PART1_LESSONS;
+  } else if (profile === 'grade11-adv2') {
+    lessons = GRADE11_ADV_PART2_LESSONS;
+  } else if (profile === 'grade12-adv1') {
+    lessons = LESSONS_DATA.filter(l => l.grade === 12 && l.id >= 601 && l.id <= 605);
+  } else if (profile === 'grade12-adv2') {
+    lessons = GRADE12_ADV_PART2_LESSONS;
+  } else if (profile === 'grade12-basic') {
+    lessons = GRADE12_BASIC_LESSONS;
+  }
+  
+  // Update section title based on filter
+  const titleEl = document.getElementById('lessonsTitle');
+  if (filter === 'all') {
+    titleEl.textContent = 'មេរៀន និងជំពូកសិក្សាទាំងអស់';
+  } else if (customLabel) {
+    titleEl.textContent = `បញ្ជីជំពូកសិក្សា - ${customLabel}`;
+  } else {
+    titleEl.textContent = `បញ្ជីជំពូកសិក្សា - ថ្នាក់ទី${filter}`;
+  }
+
+  grid.innerHTML = lessons.map(l => `
+    <div class="col-sm-6 col-lg-4">
+      <div class="lesson-card">
+        <div class="lesson-thumb" style="background:linear-gradient(135deg,${l.color},${l.color}cc)">
+          <span style="font-size:2.8rem;font-weight:900;color:rgba(255,255,255,0.9)">${l.icon}</span>
+          <span class="lesson-badge">ថ្នាក់ទី${l.grade}</span>
+        </div>
+        <div class="lesson-body">
+          <div class="lesson-title">${l.title}</div>
+          <div class="lesson-desc">${l.desc}</div>
+          <div class="lesson-meta">
+            <span class="lesson-meta-item"><i class="fas fa-clock"></i>${l.duration}</span>
+            <span class="lesson-meta-item"><i class="fas fa-pencil"></i>${l.exercises} សំណួរគំរូ</span>
+          </div>
+          <div class="lesson-buttons">
+            <button class="btn-lesson btn-lesson-read" onclick="openLessonModal(${l.id})"><i class="fas fa-book"></i>មេរៀន</button>
+            <button class="btn-lesson btn-lesson-video" onclick="showToast('▶️ កំពុងបើកវីដេអូបង្រៀនលើ YouTube នៃ${l.title}...')"><i class="fas fa-play"></i>វីដេអូ</button>
+            <button class="btn-lesson btn-lesson-pdf" onclick="showToast('📄 កំពុងទាញយកឯកសារមេរៀន PDF នៃ${l.title}...')"><i class="fas fa-file-pdf"></i>PDF</button>
+            <button class="btn-lesson btn-lesson-quiz" onclick="startChapterQuiz(${l.id})"><i class="fas fa-brain"></i>Quiz</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  if (lessons.length === 0) {
+    grid.innerHTML = '<div class="col-12 text-center py-5"><i class="fas fa-inbox" style="font-size:3rem;color:var(--text3)"></i><p style="color:var(--text2);margin-top:12px">មិនទាន់មានមេរៀននៅឡើយទេ</p></div>';
+  }
+}
+
+// ===== RENDER QUIZ =====
+function renderQuiz() {
+  const container = document.getElementById('quizContainer');
+  if (quizState.phase === 'result') {
+    const pct = Math.round((quizState.score / activeQuizData.length) * 100);
+    container.innerHTML = `
+      <div class="quiz-result">
+        <div class="quiz-score-circle">
+          <div class="quiz-score-num">${pct}%</div>
+        </div>
+        <h3 style="font-family:'Hanuman',sans-serif;font-weight:900;color:var(--text);margin-bottom:8px">
+          ${pct >= 80 ? '🎉 ល្អណាស់!' : pct >= 60 ? '👍 ល្អ!' : '💪 សាកម្ដងទៀត!'}
+        </h3>
+        <p style="color:var(--text2)">ចម្លើយត្រឹមត្រូវ: ${quizState.score}/${activeQuizData.length}</p>
+        <div style="display:flex;gap:16px;justify-content:center;margin:20px 0">
+          <div style="background:rgba(16,185,129,0.1);color:var(--success);padding:12px 24px;border-radius:12px;font-weight:700">
+            ✓ ${quizState.score} ត្រឹមត្រូវ
+          </div>
+          <div style="background:rgba(239,68,68,0.1);color:var(--danger);padding:12px 24px;border-radius:12px;font-weight:700">
+            ✗ ${activeQuizData.length - quizState.score} ខុស
+          </div>
+        </div>
+        <button onclick="restartQuiz()" style="background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;border:none;padding:12px 32px;border-radius:50px;font-weight:700;cursor:pointer;font-size:1rem">
+          <i class="fas fa-redo me-2"></i>ធ្វើម្ដងទៀត
+        </button>
+      </div>
+    `;
+    return;
+  }
+
+  const q = activeQuizData[quizState.current];
+  const progress = ((quizState.current) / activeQuizData.length) * 100;
+  container.innerHTML = `
+    <div style="display:flex;justify-content:space-between;margin-bottom:12px;color:var(--text2);font-size:0.85rem">
+      <span>សំណួរ ${quizState.current + 1}/${activeQuizData.length}</span>
+      <span>ពិន្ទុ: ${quizState.score}</span>
+    </div>
+    <div class="quiz-progress-bar">
+      <div class="quiz-progress-fill" style="width:${progress}%"></div>
+    </div>
+    <div class="quiz-question">${q.q}</div>
+    <div id="quizOptions">
+      ${q.opts.map((opt, i) => `
+        <div class="quiz-option" onclick="selectAnswer(${i})" id="opt-${i}">
+          <div class="quiz-option-label">${String.fromCharCode(65 + i)}</div>
+          <div class="quiz-option-text">${opt}</div>
+        </div>
+      `).join('')}
+    </div>
+    <div style="text-align:center;margin-top:24px">
+      <button id="nextBtn" onclick="nextQuestion()" disabled style="background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;border:none;padding:12px 32px;border-radius:50px;font-weight:700;cursor:pointer;opacity:0.5;transition:all 0.3s">
+        ${quizState.current < activeQuizData.length - 1 ? 'បន្ត →' : 'បញ្ចប់ Quiz'}
+      </button>
+    </div>
+  `;
+}
+
+let selectedAnswer = -1;
+
+function selectAnswer(idx) {
+  if (quizState.answered.includes(quizState.current)) return;
+  selectedAnswer = idx;
+  const correct = activeQuizData[quizState.current].ans;
+
+  document.querySelectorAll('.quiz-option').forEach((el, i) => {
+    el.classList.remove('selected', 'correct', 'wrong');
+    if (i === correct) el.classList.add('correct');
+    else if (i === idx && idx !== correct) el.classList.add('wrong');
+  });
+
+  if (idx === correct) quizState.score++;
+  quizState.answered.push(quizState.current);
+
+  const btn = document.getElementById('nextBtn');
+  btn.disabled = false;
+  btn.style.opacity = '1';
+}
+
+function nextQuestion() {
+  if (!quizState.answered.includes(quizState.current)) return;
+  quizState.current++;
+  if (quizState.current >= activeQuizData.length) {
+    quizState.phase = 'result';
+  }
+  renderQuiz();
+}
+
+function restartQuiz() {
+  quizState = { current: 0, score: 0, answered: [], phase: 'play' };
+  renderQuiz();
+}
+
+function startChapterQuiz(lessonId) {
+  if (CHAPTER_QUIZZES[lessonId]) {
+    activeQuizData = [...CHAPTER_QUIZZES[lessonId]];
+    document.getElementById('quizHeaderTitle').textContent = `សាកល្បង Quiz - មេរៀនទី១`;
+  } else {
+    activeQuizData = [...DEFAULT_QUIZ];
+    document.getElementById('quizHeaderTitle').textContent = `សាកល្បង Quiz ទូទៅ`;
+  }
+  quizState = { current: 0, score: 0, answered: [], phase: 'play' };
+  renderQuiz();
+  document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
+  showToast('✏️ បានចាប់ផ្ដើម Quiz ជាក់លាក់នៃជំពូកនេះ!');
+}
+
+// ===== SEARCH =====
+function doSearch() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  const results = document.getElementById('searchResults');
+  if (!q) { results.classList.remove('show'); return; }
+
+  const matches = ALL_LESSONS_DATA.filter(l =>
+    l.title.toLowerCase().includes(q) ||
+    l.desc.toLowerCase().includes(q)
+  );
+
+  if (matches.length === 0) {
+    results.innerHTML = '<div style="padding:16px 20px;color:var(--text2);text-align:center">មិនមានលទ្ធផល</div>';
+  } else {
+    results.innerHTML = matches.map(l => `
+      <div class="search-result-item" onclick="showLesson(${l.id})">
+        <div class="search-result-icon" style="background:rgba(${l.color.slice(1).match(/../g).map(x=>parseInt(x,16)).join(',')},0.1)">
+          <span style="font-weight:900;color:${l.color}">${l.icon}</span>
+        </div>
+        <div>
+          <div class="search-result-name">${l.title}</div>
+          <div class="search-result-sub">ថ្នាក់ទី${l.grade} · ${l.duration}</div>
+        </div>
+      </div>
+    `).join('');
+  }
+  results.classList.add('show');
+}
+
+function filterGrade(grade, btn, customLabel = '', profile = '') {
+  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  renderLessons(grade, customLabel, profile);
+  const lessonsSection = document.getElementById('lessons');
+  if (lessonsSection) {
+    lessonsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+document.getElementById('searchInput').addEventListener('input', doSearch);
+document.addEventListener('click', e => {
+  if (!e.target.closest('.search-box')) {
+    document.getElementById('searchResults').classList.remove('show');
+  }
+});
+
+// ===== STATS COUNTER =====
+function animateCounter(el, target, suffix = '') {
+  let start = 0;
+  const step = target / 60;
+  const timer = setInterval(() => {
+    start += step;
+    if (start >= target) { start = target; clearInterval(timer); }
+    el.textContent = Math.floor(start).toLocaleString() + suffix;
+  }, 30);
+}
+
+// ===== SCROLL =====
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('backToTop');
+  btn.classList.toggle('show', window.scrollY > 400);
+});
+
+// ===== INTERSECT OBSERVER =====
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('fade-in');
+    }
+  });
+}, { threshold: 0.1 });
+
+// ===== TOAST =====
+function showToast(msg) {
+  document.getElementById('toastMsg').textContent = msg;
+  const toast = new bootstrap.Toast(document.getElementById('mainToast'));
+  toast.show();
+}
+
+function isAdminLoggedIn() {
+  return localStorage.getItem(ADMIN_AUTH_KEY) === '1';
+}
+
+function updateAdminPanelState() {
+  const loginForm = document.getElementById('adminLoginForm');
+  const adminPanel = document.getElementById('adminPanel');
+  const msg = document.getElementById('adminLoginMsg');
+  if (!loginForm || !adminPanel) return;
+
+  if (isAdminLoggedIn()) {
+    loginForm.classList.add('d-none');
+    adminPanel.classList.remove('d-none');
+    if (msg) msg.textContent = '';
+  } else {
+    loginForm.classList.remove('d-none');
+    adminPanel.classList.add('d-none');
+  }
+}
+
+function openAdminModal() {
+  updateAdminPanelState();
+  const modal = new bootstrap.Modal(document.getElementById('adminModal'));
+  modal.show();
+}
+
+function adminLogin(event) {
+  event.preventDefault();
+  const id = document.getElementById('adminIdInput').value.trim();
+  const password = document.getElementById('adminPassInput').value;
+  const msg = document.getElementById('adminLoginMsg');
+
+  if (id === ADMIN_CREDENTIALS.id && password === ADMIN_CREDENTIALS.password) {
+    localStorage.setItem(ADMIN_AUTH_KEY, '1');
+    if (msg) msg.textContent = '';
+    showToast('✅ ចូលជា Admin បានជោគជ័យ');
+    updateAdminPanelState();
+    return;
+  }
+
+  if (msg) msg.textContent = 'Admin ID ឬ Password មិនត្រឹមត្រូវ';
+}
+
+function adminLogout() {
+  localStorage.removeItem(ADMIN_AUTH_KEY);
+  updateAdminPanelState();
+  showToast('🔒 បានចាកចេញពី Admin');
+}
+
+function exportProjectData() {
+  if (!isAdminLoggedIn()) {
+    showToast('⛔ សូមចូលជា Admin ជាមុនសិន');
+    return;
+  }
+
+  const payload = {
+    exportedAt: new Date().toISOString(),
+    grades: GRADES_DATA,
+    lessons: LESSONS_DATA,
+    grade11Basic: GRADE11_BASIC_LESSONS,
+    grade11AdvPart1: GRADE11_ADV_PART1_LESSONS,
+    grade11AdvPart2: GRADE11_ADV_PART2_LESSONS,
+    grade12AdvPart2: GRADE12_ADV_PART2_LESSONS,
+    grade12Basic: GRADE12_BASIC_LESSONS
+  };
+
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'eduplus-project-data.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('📦 បាន Export ទិន្នន័យ Project');
+}
+
+function showProjectStructure() {
+  if (!isAdminLoggedIn()) {
+    showToast('⛔ សូមចូលជា Admin ជាមុនសិន');
+    return;
+  }
+
+  const pre = document.getElementById('projectStructurePreview');
+  if (!pre) return;
+  pre.style.display = 'block';
+  pre.textContent = [
+    'Project Structure (Current)',
+    'D:/Eduplus/',
+    '├─ edu plus.html',
+    '├─ logo-eduplus.png',
+    '├─ Edu.jpg',
+    '├─ grade12_highlevel_part1_kh.txt',
+    '└─ Grade10_Lessons_Exercises.md',
+    '',
+    'Data Modules in HTML:',
+    '- GRADES_DATA',
+    '- LESSONS_DATA',
+    '- GRADE11_BASIC_LESSONS',
+    '- GRADE11_ADV_PART1_LESSONS',
+    '- GRADE11_ADV_PART2_LESSONS',
+    '- GRADE12_ADV_PART2_LESSONS',
+    '- GRADE12_BASIC_LESSONS'
+  ].join('\n');
+}
+
+// Scroller helper
+function scrollToGrade(gradeId) {
+  const filterBtn = document.getElementById(`btn-filter-${gradeId}`);
+  if (filterBtn) {
+    showGrade(gradeId);
+  }
+}
+
+function showGrade(id) {
+  const grade = GRADES_DATA.find(g => g.id === id);
+  showToast(`📚 កំពុងបង្ហាញមេរៀនថ្នាក់ទី${id} - ${grade.lessons} មេរៀន`);
+  
+  // Find appropriate filter chip and activate it
+  // Grade 11/12 use dropdown chips, so route to their default profiles.
+  if (id === 11) {
+    const btn11 = document.getElementById('btn-filter-11-dropdown');
+    if (btn11) filterGrade('11', btn11, 'ថ្នាក់ទី១១ កម្រិតខ្ពស់ ភាគ១', 'grade11-adv1');
+  } else if (id === 12) {
+    const btn12 = document.getElementById('btn-filter-12-dropdown');
+    if (btn12) filterGrade('12', btn12, 'ថ្នាក់ទី១២ កម្រិតខ្ពស់ ភាគ១', 'grade12-adv1');
+  } else {
+    const filterBtn = document.getElementById(`btn-filter-${id}`);
+    if (filterBtn) filterGrade(String(id), filterBtn);
+  }
+  
+  document.getElementById('lessons').scrollIntoView({ behavior: 'smooth' });
+}
+
+// Interactive demo helper for Modal
+function updateInteractiveNumberLineDesc(val) {
+  const descEl = document.getElementById('numberLineDesc');
+  if (!descEl) return;
+  if (val === 0) {
+    descEl.innerHTML = `<strong>លេខ ០ (សូន្យ)៖</strong> ជាចំណុចចាប់ផ្ដើម ឬជាគល់តម្រុយលើបន្ទាត់ចំនួន។ វាមិនមែនជាចំនួនវិជ្ជមាន ឬអវិជ្ជមានឡើយ។`;
+  } else if (val > 0) {
+    descEl.innerHTML = `<strong>លេខ ${val} (ចំនួនគត់វិជ្ជមាន)៖</strong> ស្ថិតនៅខាងស្ដាំនៃគល់ ០។ គ្រប់ចំនួននៅខាងស្ដាំគឺធំជាងចំនួននៅខាងឆ្វេង។`;
+  } else {
+    descEl.innerHTML = `<strong>លេខ ${val} (ចំនួនគត់អវិជ្ជមាន)៖</strong> ស្ថិតនៅខាងឆ្វេងនៃគល់ ០។ គ្រប់ចំនួននៅខាងឆ្វេងគឺតូចជាងចំនួននៅខាងស្ដាំ។`;
+  }
+}
+
+const GRADE10_CHAPTER_LESSONS = {
+  401: [
+    {
+      title: 'មេរៀនទី ១ ៖ ពហុធា',
+      content: `
+        <p class="mb-2 text-secondary">មេរៀននេះផ្តោតលើនិយមន័យពហុធា ដឺក្រេ មេគុណ និងតម្លៃពហុធា។</p>
+        <ul class="text-secondary mb-2">
+          <li>ទម្រង់ទូទៅ៖ <code>P(x)=a_nx^n+...+a_1x+a_0</code></li>
+          <li>ដឺក្រេពហុធា = អនុគមន៍ខ្ពស់បំផុតនៃអថេរ</li>
+          <li>មេគុណគន្លឹះ និងធាតុថេរ</li>
+        </ul>
+        <div class="math-example-box text-secondary">ឧទាហរណ៍: បើ <code>P(x)=3x^3-2x+5</code> នោះដឺក្រេ = 3 និង <code>P(2)=25</code>។</div>
+      `
+    },
+    {
+      title: 'មេរៀនទី ២ ៖ ប្រមាណវិធីលើពហុធា',
+      content: `
+        <p class="mb-2 text-secondary">សិក្សាការបូក ដក គុណ និងចែកពហុធា ដោយរៀបធាតុដូចគ្នាជាមួយគ្នា។</p>
+        <ul class="text-secondary mb-2">
+          <li>បូក/ដក៖ ប្រមូលធាតុដឺក្រេដូចគ្នា</li>
+          <li>គុណ៖ ចែកចាយធាតុនីមួយៗទៅធាតុនីមួយៗ</li>
+          <li>ចែក៖ ប្រើ long division ឬ synthetic (តាមករណី)</li>
+        </ul>
+        <div class="math-example-box text-secondary">ឧទាហរណ៍: <code>(2x^2-3x+1)+(x^2+5x-4)=3x^2+2x-3</code></div>
+      `
+    }
+  ]
+};
+
+function buildGrade10ChapterModal(lesson) {
+  const parsedLessons = (lesson.desc || '')
+    .split('·')
+    .map(s => s.trim())
+    .filter(Boolean);
+
+  const lessonItems = (GRADE10_CHAPTER_LESSONS[lesson.id] || parsedLessons.map(name => ({
+    title: name,
+    content: `<p class="text-secondary mb-0">ខ្លឹមសារលម្អិតសម្រាប់ <strong>${name}</strong> នឹងបន្ថែមបន្តតាមឯកសារមេរៀន។</p>`
+  })));
+
+  const detailsHtml = lessonItems.map((item, idx) => `
+    <details ${idx === 0 ? 'open' : ''} class="mb-3 p-3" style="border:1px solid var(--border);border-radius:12px;background:rgba(16,185,129,0.04);">
+      <summary style="cursor:pointer;font-weight:800;color:var(--text);">${item.title}</summary>
+      <div class="mt-3">${item.content}</div>
+    </details>
+  `).join('');
+
+  return `
+    <h2 class="mb-3" style="font-family:'Hanuman', sans-serif; font-weight:900; color:var(--text);">${lesson.title}</h2>
+    <p class="text-secondary mb-3">ជ្រើសរើសមេរៀនខាងក្រោម ដើម្បីមើលខ្លឹមសារបន្ត។</p>
+    ${detailsHtml}
+  `;
+}
+
+function buildChapterModalByDesc(lesson) {
+  const lessonItems = (lesson.desc || '')
+    .split('·')
+    .map(s => s.trim())
+    .filter(Boolean)
+    .map(name => ({
+      title: name,
+      content: `<p class="text-secondary mb-0">ខ្លឹមសារលម្អិតសម្រាប់ <strong>${name}</strong> នឹងបន្ថែមបន្តតាមឯកសារមេរៀន។</p>`
+    }));
+
+  const detailsHtml = lessonItems.map((item, idx) => `
+    <details ${idx === 0 ? 'open' : ''} class="mb-3 p-3" style="border:1px solid var(--border);border-radius:12px;background:rgba(245,158,11,0.05);">
+      <summary style="cursor:pointer;font-weight:800;color:var(--text);">${item.title}</summary>
+      <div class="mt-3">${item.content}</div>
+    </details>
+  `).join('');
+
+  return `
+    <h2 class="mb-3" style="font-family:'Hanuman', sans-serif; font-weight:900; color:var(--text);">${lesson.title}</h2>
+    <p class="text-secondary mb-3">ជ្រើសរើសមេរៀនខាងក្រោម ដើម្បីមើលខ្លឹមសារបន្ត។</p>
+    ${detailsHtml}
+  `;
+}
+
+// Function to open the lesson detail modal (Optimized for full G7 Lesson 1 content)
+function openLessonModal(lessonId) {
+  const lesson = ALL_LESSONS_DATA.find(l => l.id === lessonId);
+  if (!lesson) return;
+
+  const badgeEl = document.getElementById('lessonModalBadge');
+  const bodyEl = document.getElementById('lessonModalBody');
+
+  badgeEl.textContent = `ថ្នាក់ទី${lesson.grade}`;
+  badgeEl.style.backgroundColor = lesson.color;
+
+  if (lesson.grade === 10) {
+    bodyEl.innerHTML = buildGrade10ChapterModal(lesson);
+  } else if (lesson.grade === 11 || lesson.grade === 12) {
+    bodyEl.innerHTML = buildChapterModalByDesc(lesson);
+  } else if (lessonId === 101) {
+    // --- FULL RICH MULTI-SECTION KH MER EDUCATION FOR LESSON 1: INTEGERS ---
+    bodyEl.innerHTML = `
+      <div class="pe-2">
+        <div class="d-flex align-items-center gap-3 mb-4">
+          <div class="logo-icon fs-2 p-3" style="width:55px;height:55px;border-radius:12px;">ℤ</div>
+          <div>
+            <h2 class="mb-0" style="font-family:'Hanuman', sans-serif; font-weight:900; color:var(--text);">${lesson.title}</h2>
+            <p class="text-muted mb-0">សៀវភៅគោលក្រសួងអប់រំ យុវជន និងកីឡា (ទំព័រទី ៦ ដល់ ១៩)</p>
+          </div>
+        </div>
+
+        <!-- Objectives Card -->
+        <div class="card border-0 shadow-sm p-4 mb-4" style="background: rgba(37,99,235,0.04); border-radius:16px;">
+          <h5 class="fw-bold" style="color:var(--primary);"><i class="fas fa-bullseye me-2"></i>វត្ថុបំណងមេរៀន (Lesson Objectives)</h5>
+          <ul class="mb-0 mt-2 text-secondary" style="line-height:1.7;">
+            <li>បង្ហាញសញ្ញាណចំនួនគត់ និងតាងចំនួនគត់លើបន្ទាត់ចំនួន។</li>
+            <li>ធ្វើប្រមាណវិធីទាំងបួន (បូក ដក គុណ ចែក) លើចំនួនគត់។</li>
+            <li>គណនាការេ គូប ឫសការេ និងឫសគូបនៃចំនួនគត់។</li>
+            <li>ដោះស្រាយចំណោទគណិតវិទ្យាដែលទាក់ទងនឹងចំនួនគត់។</li>
+          </ul>
+        </div>
+
+        <!-- Section 1: Concept -->
+        <h4 class="fw-bold mt-4 mb-3" style="color:var(--text);">១. សញ្ញាណចំនួនគត់ (Concept of Integers)</h4>
+        <p class="text-secondary" style="line-height:1.8;">
+          ប្រព័ន្ធរបាប់ដែលយើងប្រើសព្វថ្ងៃនេះហៅថា <strong>ប្រព័ន្ធរបាប់ហ៊ុនឌូអារ៉ាប់</strong>។ ប្រព័ន្ធរបាប់នេះមានដប់លេខគឺ៖ $0, 1, 2, 3, 4, 5, 6, 7, 8$ និង $9$។ លេខទាំងដប់នេះអាចសរសេរបានជាចំនួនគត់ជាច្រើនរាប់មិនអស់។
+        </p>
+        <ul class="text-secondary" style="line-height:1.8;">
+          <li><strong>ចំនួនគត់៖</strong> $0, 1, 2, 3, 4, \dots$</li>
+          <li><strong>ចំនួនគត់ធម្មជាតិ៖</strong> ជាចំនួនគត់ដែលគ្មានសូន្យ $0$ គឺ៖ $1, 2, 3, 4, \dots$</li>
+        </ul>
+
+        <!-- Interactive Number Line Component -->
+        <div class="mb-4">
+          <p class="text-secondary mb-1"><strong>បន្ទាត់ចំនួនអន្តរកម្ម (Interactive Number Line)៖</strong> (ចុចលើចំណុចដើម្បីមើលនិយមន័យ)</p>
+          <div class="interactive-number-line">
+            <div class="number-line-point" onclick="updateInteractiveNumberLineDesc(-3)">
+              <div class="number-line-dot bg-danger"></div>
+              <div class="number-line-label">-3</div>
+            </div>
+            <div class="number-line-point" onclick="updateInteractiveNumberLineDesc(-2)">
+              <div class="number-line-dot bg-danger"></div>
+              <div class="number-line-label">-2</div>
+            </div>
+            <div class="number-line-point" onclick="updateInteractiveNumberLineDesc(-1)">
+              <div class="number-line-dot bg-danger"></div>
+              <div class="number-line-label">-1</div>
+            </div>
+            <div class="number-line-point" onclick="updateInteractiveNumberLineDesc(0)">
+              <div class="number-line-dot bg-dark"></div>
+              <div class="number-line-label">0</div>
+            </div>
+            <div class="number-line-point" onclick="updateInteractiveNumberLineDesc(1)">
+              <div class="number-line-dot"></div>
+              <div class="number-line-label">1</div>
+            </div>
+            <div class="number-line-point" onclick="updateInteractiveNumberLineDesc(2)">
+              <div class="number-line-dot"></div>
+              <div class="number-line-label">2</div>
+            </div>
+            <div class="number-line-point" onclick="updateInteractiveNumberLineDesc(3)">
+              <div class="number-line-dot"></div>
+              <div class="number-line-label">3</div>
+            </div>
+          </div>
+          <div class="alert alert-secondary py-2" id="numberLineDesc" style="font-size:0.85rem; border-radius:10px;">
+            <i class="fas fa-info-circle me-1 text-primary"></i> ចុចលើចំណុចនីមួយៗនៅលើបន្ទាត់ចំនួនខាងលើ ដើម្បីសិក្សាសេចក្ដីលម្អិត។
+          </div>
+        </div>
+
+        <!-- Section 2: Ordering -->
+        <h4 class="fw-bold mt-4 mb-3" style="color:var(--text);">២. លំដាប់នៃចំនួនគត់ (Ordering of Integers)</h4>
+        <p class="text-secondary" style="line-height:1.8;">
+          នៅលើបន្ទាត់ចំនួន៖
+          <br>• គ្រប់ចំនួនគត់ដែលឋិតនៅខាងស្ដាំ <strong>ធំជាង</strong> ចំនួនគត់ដែលឋិតនៅខាងឆ្វេង។
+          <br>• គ្រប់ចំនួនគត់ដែលឋិតនៅខាងឆ្វេង <strong>តូចជាង</strong> ចំនួនគត់ដែលឋិតនៅខាងស្ដាំ។
+        </p>
+        <div class="math-formula-box">$0 < 1 < 2 < 3 < 4 < 5 < 6 < 7 < \dots < 99$</div>
+        <div class="math-example-box text-secondary">
+          <strong>លំហាត់គំរូ៖</strong> ចូរកំណត់ផ្នែកនៃបន្ទាត់ចំនួនដែលមានចំណុចតាងចំនួនគត់ <strong>"ធំជាង 4 និងតូចជាង 11"</strong>។
+          <br><strong>ចម្លើយ៖</strong> ចំនួនដែលធំជាង 4 និងតូចជាង 11 គឺ៖ <strong>$5, 6, 7, 8, 9, 10$</strong>។
+        </div>
+
+        <!-- Section 3: Even and Odd -->
+        <h4 class="fw-bold mt-4 mb-3" style="color:var(--text);">៣. ចំនួនគត់គូ និងចំនួនគត់សេស (Even & Odd Integers)</h4>
+        <p class="text-secondary" style="line-height:1.8;">
+          • <strong>ចំនួនគត់គូ៖</strong> ជាគ្រប់ចំនួនគត់ដែលចែកដាច់នឹង $2$ ដូចជា $2, 4, 6, 8, 10, \dots$។
+          <br>• <strong>ចំនួនគត់សេស៖</strong> ជាគ្រប់ចំនួនគត់ដែលចែកមិនដាច់នឹង $2$ ដូចជា $1, 3, 5, 7, 9, \dots$។
+        </p>
+        <div class="math-example-box text-secondary">
+          <strong>លំហាត់គំរូ៖</strong> ចូររកគ្រប់ចំនួនគត់គូនៅចន្លោះ 20 និង 43។
+          <br><strong>ចម្លើយ៖</strong> ចំនួនគត់គូនៅចន្លោះ 20 និង 43 រួមមាន៖ <strong>$22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42$</strong>។
+        </div>
+
+        <!-- Section 4: Four Operations -->
+        <h4 class="fw-bold mt-4 mb-3" style="color:var(--text);">៤. ប្រមាណវិធីលើចំនួនគត់ (Four Operations on Integers)</h4>
+        <h5 class="fw-bold text-secondary">៤.១ វិធីបូក និងវិធីដក</h5>
+        <p class="text-secondary" style="line-height:1.8;">
+          ច្បាប់ជាទូទៅ៖
+          <br>• បើ $a + b = c$ នោះនាំឱ្យ $a = c - b$ និង $b = c - a$។
+          <br>• បើ $a - b = c$ នោះនាំឱ្យ $a = c + b$ និង $b = a - c$។
+        </p>
+        <div class="math-example-box text-secondary">
+          <strong>ឧទាហរណ៍៖</strong> សិស្សថ្នាក់ទី៧ មានចំនួន 589 នាក់ ថ្នាក់ទី៨ មាន 546 នាក់ និងថ្នាក់ទី៩ មាន 503 នាក់។ ចំនួនសិស្សសរុបគឺ៖
+          <br>$589 + 546 + 503 = 1638\text{ នាក់}$។
+        </div>
+
+        <h5 class="fw-bold text-secondary mt-3">៤.២ វិធីគុណ និងវិធីចែក</h5>
+        <p class="text-secondary" style="line-height:1.8;">
+          ប្រមាណវិធីចែកមានទម្រង់៖ <strong>តំណាងចែក = (តួចែក $\times$ ផលចែក) + សំណល់</strong>
+        </p>
+        <div class="math-formula-box">$a = b \times q + r \quad (\text{ដែល } r < b \text{ ជាសំណល់})$</div>
+        <div class="math-example-box text-secondary">
+          <strong>ឧទាហរណ៍វិធីចែកមានសំណល់៖</strong> គណនា $5406 \div 128$។
+          <br>យើងបាន ផលចែក $q = 42$ និងសំណល់ $r = 30$ ព្រោះ៖
+          <br>$5406 = 128 \times 42 + 30$ (ផ្ទៀងផ្ទាត់ $30 < 128$)។
+        </div>
+
+        <!-- Section 5: Properties -->
+        <h4 class="fw-bold mt-4 mb-3" style="color:var(--text);">៥. លក្ខណៈនៃប្រមាណវិធី (Properties of Operations)</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered text-secondary" style="font-size:0.9rem;">
+            <thead class="table-light">
+              <tr>
+                <th>លក្ខណៈ (Property)</th>
+                <th>វិធីបូក (Addition)</th>
+                <th>វិធីគុណ (Multiplication)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>លក្ខណៈត្រឡប់ (Commutative)</strong></td>
+                <td>$a + b = b + a$</td>
+                <td>$a \times b = b \times a$</td>
+              </tr>
+              <tr>
+                <td><strong>លក្ខណៈផ្ដុំ (Associative)</strong></td>
+                <td>$(a + b) + c = a + (b + c)$</td>
+                <td>$(a \times b) \times c = a \times (b \times c)$</td>
+              </tr>
+              <tr>
+                <td><strong>ធាតុណឺត (Neutral Element)</strong></td>
+                <td>$a + 0 = a$ (០ ជាធាតុណឺត)</td>
+                <td>$a \times 1 = a$ (១ ជាធាតុណឺត)</td>
+              </tr>
+              <tr>
+                <td><strong>លក្ខណៈបំបែក (Distributive)</strong></td>
+                <td colspan="2" class="text-center">$a \times (b + c) = (a \times b) + (a \times c)$</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Section 6: Order of Operations -->
+        <h4 class="fw-bold mt-4 mb-3" style="color:var(--text);">៦. លំដាប់នៃប្រមាណវិធីលើចំនួនគត់ (Order of Operations)</h4>
+        <p class="text-secondary" style="line-height:1.8;">
+          ដើម្បីគណនាកន្សោមគណិតវិទ្យាដែលមានប្រមាណវិធីច្រើនចម្រុះគ្នា យើងត្រូវអនុវត្តតាមច្បាប់៖
+          <br>១. គណនាក្នុងវង់ក្រចក $(\dots)$ មុនគេ រួចក្នុងតង្កៀប $[\dots]$ ជាក្រោយ។
+          <br>២. ធ្វើវិធីគុណ ឬវិធីចែក ពីឆ្វេងទៅស្ដាំ។
+          <br>៣. ធ្វើវិធីបូក ឬវិធីដក ពីឆ្វេងទៅស្ដាំ។
+        </p>
+        <div class="math-example-box text-secondary">
+          <strong>ឧទាហរណ៍៖</strong> គណនា $52 - 4 \times 12 + 18 \div 6 \times 3$
+          <br>• គុណ និងចែកមុន៖ $4 \times 12 = 48$ និង $18 \div 6 \times 3 = 3 \times 3 = 9$
+          <br>• បន្ទាប់មកបូកដក៖ $52 - 48 + 9 = 4 + 9 = 13$។
+        </div>
+
+        <!-- Section 7: Rounding -->
+        <h4 class="fw-bold mt-4 mb-3" style="color:var(--text);">៧. ការបង្កត់ចំនួនគត់ (Rounding of Integers)</h4>
+        <p class="text-secondary" style="line-height:1.8;">
+          ដើម្បីបង្កត់ចំនួនគត់ យើងត្រូវពិនិត្យមើលលេខដែលនៅខាងស្ដាំបន្ទាប់ពីខ្ទង់ដែលចង់បង្កត់៖
+          <br>• បើតម្លៃលេខពី <strong>$0$ ដល់ $4$</strong> ត្រូវបង្កត់ចុះ (ជំនួសដោយសូន្យ)។
+          <br>• បើតម្លៃលេខពី <strong>$5$ ដល់ $9$</strong> ត្រូវបង្កត់ឡើង (បូកបន្ថែម $1$ លើខ្ទង់បង្កត់)។
+        </p>
+        <div class="math-example-box text-secondary">
+          <strong>ឧទាហរណ៍៖</strong> បង្កត់ចំនួន $15824$៖
+          <br>• យកត្រឹមខ្ទង់រយ៖ $15824 \approx 15800$ (ដោយសារលេខ ២ តូចជាង ៥)
+          <br>• យកត្រឹមខ្ទង់ពាន់៖ $15824 \approx 16000$ (ដោយសារលេខ ៨ ធំជាង ៥)
+        </div>
+
+        <!-- Section 8: Square & Roots -->
+        <h4 class="fw-bold mt-4 mb-3" style="color:var(--text);">៨. ការេ គូប និងឫសការេ ឫសគូប (Squares, Cubes & Roots)</h4>
+        <p class="text-secondary" style="line-height:1.8;">
+          • <strong>ការេ និងឫសការេ៖</strong> $a^2 = a \times a$ រីឯ $\sqrt{a^2} = a$
+          <br>• <strong>គូប និងឫសគូប៖</strong> $a^3 = a \times a \times a$ រីឯ $\sqrt[3]{a^3} = a$
+        </p>
+        <div class="math-formula-box">
+          $5^2 = 25 \Rightarrow \\sqrt{25} = 5 \\quad | \\quad 5^3 = 125 \Rightarrow \\sqrt[3]{125} = 5$
+        </div>
+        <div class="math-example-box text-secondary">
+          <strong>លំហាត់គំរូ៖</strong> គណនា $\\sqrt{4900} + \\sqrt{1600}$
+          <br><strong>ដំណោះស្រាយ៖</strong> $\\sqrt{4900} + \\sqrt{1600} = \\sqrt{70^2} + \\sqrt{40^2} = 70 + 40 = 110$។
+        </div>
+      </div>
+    `;
+  } else {
+    // Standard template for other lessons
+    bodyEl.innerHTML = `
+      <h2 class="mb-3" style="font-family:'Hanuman', sans-serif; font-weight:900; color:var(--text);">${lesson.title}</h2>
+      
+      <h5 class="fw-bold" style="color:var(--text);">១. សេចក្ដីសង្ខេបមេរៀន (Lesson Summary)</h5>
+      <p class="text-secondary" style="line-height: 1.8;">${lesson.summary}</p>
+      
+      <h5 class="fw-bold mt-4" style="color:var(--text);">២. រូបមន្តគន្លឹះ (Key Formulas)</h5>
+      <div class="math-formula-box">
+        $${lesson.formula}$
+      </div>
+      
+      <h5 class="fw-bold mt-4" style="color:var(--text);">៣. លំហាត់គំរូ និងដំណោះស្រាយ (Examples)</h5>
+      <div class="math-example-box text-secondary" style="line-height: 1.8;">
+        $${lesson.example}$
+      </div>
+    `;
+  }
+
+  // Trigger modal display
+  const myModal = new bootstrap.Modal(document.getElementById('lessonDetailModal'));
+  myModal.show();
+
+  // Re-run MathJax rendering to compile formulas in dynamic HTML
+  if (window.MathJax) {
+    MathJax.typesetPromise([bodyEl]).catch((err) => console.log(err.message));
+  }
+}
+
+function showLesson(id) {
+  document.getElementById('searchResults').classList.remove('show');
+  openLessonModal(id);
+}
+
+// ===== INIT =====
+document.addEventListener('DOMContentLoaded', () => {
+  updateAdminPanelState();
+  renderGrades();
+  renderLessons();
+  renderQuiz();
+
+  // Counters (Total lessons is now 57)
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(document.getElementById('statStudents'), 5000, '+');
+        animateCounter(document.getElementById('statLessons'), 57, ' មេរៀន');
+        animateCounter(document.getElementById('statQuizzes'), 38, ' Quiz');
+        animateCounter(document.getElementById('statGrades'), 6, '');
+        statsObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+  statsObserver.observe(document.querySelector('.hero-stats'));
+
+  // Observe grade cards
+  document.querySelectorAll('.grade-card, .feature-card, .lesson-card').forEach(el => {
+    observer.observe(el);
+  });
+});
+</script>
+</body>
+</html>
+
